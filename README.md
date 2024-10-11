@@ -1,9 +1,11 @@
 # この虫なーんだ？  ーハンドサインで虫がわかる!!ー
 
 ## 使用技術一覧
-<!-- シールド一覧 -->
-<!-- 該当するプロジェクトの中から任意のものを選ぶ-->
-<img src="https://www.tensorflow.org/images/tf_logo_horizontal.png">
+・Tensorflow-lite
+
+・androidx
+
+・mediapipe
 
 ## What_is_this_insect_applicationについて
 このディレクトリがアプリケーションの本体です。
