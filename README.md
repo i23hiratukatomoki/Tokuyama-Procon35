@@ -7,6 +7,13 @@
   <img src="https://www.tensorflow.org/images/tf_logo_horizontal.png">
 </p>
 
+## What_is_this_insect_applicationについて
+このディレクトリがアプリケーションの本体です。
+
+環境構築を完了したAndroidStudioを使用して実行することでAndroidスマートフォンにアプリをインストールすることができます。
+
+
+
 ## プロジェクトの構成
 <!-- Treeコマンドを使ってディレクトリ構成を記載 -->
 <pre>
