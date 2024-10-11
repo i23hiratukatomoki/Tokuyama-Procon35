@@ -20,9 +20,9 @@
 このファイルには合計13個のtfliteモデルを使用して撮影した写真に含まれる昆虫を段階的に認識するプログラムが含まれています。
 
 このファイルはMainActivityで以下のようにして使用されています。
-
+<pre>
 val musilabel = name_ja[ModelUser.answer(this, aftercutbitmap)]
-
+<pre>
 tfliteモデルはassetフォルダに入っています。
 
 ## プロジェクトの構成
