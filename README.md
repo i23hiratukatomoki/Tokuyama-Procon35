@@ -6,3 +6,7 @@
 <p style="display: inline">
   <img src="https://www.tensorflow.org/images/tf_logo_horizontal.png">
 </p>
+
+## プロジェクトの構成
+Tokuyama-Procon35/ │ ├── app/ # Androidアプリケーションのソースコード │ ├── src/ # ソースコードとリソースファイル │ │ ├── main/ # メインアプリケーションファイル │ │ │ ├── java/ # Java/Kotlinのコード │ │ │ ├── res/ # レイアウト、画像などのリソース │ ├── build.gradle # Gradleビルド設定 │ ├── models/ # TensorFlowLiteモデルファイル │ ├── README.md # プロジェクトの概要（このファイル） ├── build.gradle # プロジェクト全体のGradle設定 └── settings.gradle # サブプロジェクトの設定
+
