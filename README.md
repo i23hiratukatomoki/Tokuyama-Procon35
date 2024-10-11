@@ -7,16 +7,16 @@
 
 ・mediapipe
 
-## What_is_this_insect_applicationについて
+## What_is_this_insect_application
 このディレクトリがアプリケーションの本体です。
 
 環境構築を完了したAndroidStudioを使用して実行することでAndroidスマートフォンにアプリをインストールすることができます。
 
 また、このアプリケーションに含まれる主要な部分について以下で説明します。
-### libuvccameraとusbCameraCommonついて
+### libuvccameraとusbCameraCommon
 この二つのディレクトリは外部カメラを使用する際に利用されています。
 
-### ModelUserActivity.ktについて
+### ModelUserActivity.kt
 このファイルには合計13個のtfliteモデルを使用して撮影した写真に含まれる昆虫を段階的に認識するプログラムが含まれています。
 
 このファイルはMainActivityで以下のようにして使用されています。
