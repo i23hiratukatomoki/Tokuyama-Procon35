@@ -7,6 +7,8 @@
 
 ・mediapipe
 
+・jsoup
+
 ## What_is_this_insect_application
 このディレクトリがアプリケーションの本体です。
 
