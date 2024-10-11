@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/hiratsukatomoki/Desktop/Mediapipe-v13/examples/gesture_recognizer/android/libuvccamera/src/main/AndroidManifest.xml:24:1-28:12
-INJECTED from /Users/hiratsukatomoki/Desktop/Mediapipe-v13/examples/gesture_recognizer/android/libuvccamera/src/main/AndroidManifest.xml:24:1-28:12
+ADDED from /Users/kyo/Desktop/What_is_this_insect_application/libuvccamera/src/main/AndroidManifest.xml:24:1-28:12
+INJECTED from /Users/kyo/Desktop/What_is_this_insect_application/libuvccamera/src/main/AndroidManifest.xml:24:1-28:12
 	package
-		INJECTED from /Users/hiratsukatomoki/Desktop/Mediapipe-v13/examples/gesture_recognizer/android/libuvccamera/src/main/AndroidManifest.xml
+		INJECTED from /Users/kyo/Desktop/What_is_this_insect_application/libuvccamera/src/main/AndroidManifest.xml
 	android:versionName
-		ADDED from /Users/hiratsukatomoki/Desktop/Mediapipe-v13/examples/gesture_recognizer/android/libuvccamera/src/main/AndroidManifest.xml:26:5-30
+		ADDED from /Users/kyo/Desktop/What_is_this_insect_application/libuvccamera/src/main/AndroidManifest.xml:26:5-30
 	xmlns:android
-		ADDED from /Users/hiratsukatomoki/Desktop/Mediapipe-v13/examples/gesture_recognizer/android/libuvccamera/src/main/AndroidManifest.xml:24:11-69
+		ADDED from /Users/kyo/Desktop/What_is_this_insect_application/libuvccamera/src/main/AndroidManifest.xml:24:11-69
 	android:versionCode
-		ADDED from /Users/hiratsukatomoki/Desktop/Mediapipe-v13/examples/gesture_recognizer/android/libuvccamera/src/main/AndroidManifest.xml:25:5-28
+		ADDED from /Users/kyo/Desktop/What_is_this_insect_application/libuvccamera/src/main/AndroidManifest.xml:25:5-28
 uses-sdk
-INJECTED from /Users/hiratsukatomoki/Desktop/Mediapipe-v13/examples/gesture_recognizer/android/libuvccamera/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/hiratsukatomoki/Desktop/Mediapipe-v13/examples/gesture_recognizer/android/libuvccamera/src/main/AndroidManifest.xml
-INJECTED from /Users/hiratsukatomoki/Desktop/Mediapipe-v13/examples/gesture_recognizer/android/libuvccamera/src/main/AndroidManifest.xml
+INJECTED from /Users/kyo/Desktop/What_is_this_insect_application/libuvccamera/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/kyo/Desktop/What_is_this_insect_application/libuvccamera/src/main/AndroidManifest.xml
+INJECTED from /Users/kyo/Desktop/What_is_this_insect_application/libuvccamera/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/hiratsukatomoki/Desktop/Mediapipe-v13/examples/gesture_recognizer/android/libuvccamera/src/main/AndroidManifest.xml
+		INJECTED from /Users/kyo/Desktop/What_is_this_insect_application/libuvccamera/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/hiratsukatomoki/Desktop/Mediapipe-v13/examples/gesture_recognizer/android/libuvccamera/src/main/AndroidManifest.xml
+		INJECTED from /Users/kyo/Desktop/What_is_this_insect_application/libuvccamera/src/main/AndroidManifest.xml

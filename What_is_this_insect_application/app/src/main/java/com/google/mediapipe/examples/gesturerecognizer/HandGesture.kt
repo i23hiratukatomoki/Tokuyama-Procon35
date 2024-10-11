@@ -1,60 +1,45 @@
 package com.google.mediapipe.examples.gesturerecognizer
 
-import android.util.Log
+/*呼び出し方法
+val hanges = HandGesture()
+*/
+
 import com.google.mediapipe.tasks.vision.gesturerecognizer.GestureRecognizerResult
-import kotlin.math.min
-import kotlin.math.max
+import android.util.Log
 
 class HandGesture{
-    /*呼び出し方法
-    val hanges = HandGesture()
-    */
-    val org_rec = floatArrayOf(10f, 10f, 0f, 0f) // 初期値（適当）
-    val org_tak =
-        //booleanArrayOf(false, false, false, false) // [0:ハンドサイン, 1:直前にハンドサイン, 2:指が入っているか, 3:撮影可能か]
+    // 初期値の定数
+    private val org_rec = floatArrayOf(10f, 10f, 0f, 0f) // [left,top,right,bottom]
+    private val org_tak =
         booleanArrayOf(false, false) // [0:直前にハンドサイン, 1:撮影可能か]
+    // mediapipeの判別結果を取得する変数
     private var results: GestureRecognizerResult? = null
-
+    // HandGesture内部で使うための変数
     private var _istake: BooleanArray = org_tak
     private var _picrec: FloatArray = org_rec
+    // MainActivityで取得するための変数
     val currentIsTake: BooleanArray get() = _istake
     val currentPicrec: FloatArray get() = _picrec
 
-    // x,yの最大値・最小値を格納　撮影範囲とする
-    private fun rec_mm(x: Float, y: Float, rec: FloatArray): FloatArray {
-        rec[0] = min(rec[0], x)  // xmin l
-        rec[1] = min(rec[1], y)  // ymin b
-        rec[2] = max(rec[2], x)  // xmax r
-        rec[3] = max(rec[3], y)  // ymax t
-        return rec
-    }
+    /*data class _picrec(
+        val left: Float,
+        val bottom: Float,
+        val right: Float,
+        val top: Float
+    )*/
 
-    //規定の撮影範囲か
-    private fun picrec_rule(picrec: FloatArray): Boolean {
-        val LOWEST = 0.2f
-        val XMAX = 1f
-        val YMAX = 1f
-        val xlen = picrec[2] - picrec[0]
-        val ylen = picrec[3] - picrec[1]
-        val isOk = xlen * ylen >= (LOWEST * LOWEST) && xlen in LOWEST..XMAX && ylen in LOWEST..YMAX
-        return if (isOk) {
-            true
-        } else {
-            false
+    // 指が撮影範囲に入っていないか
+    private fun isFing(): Boolean {
+        for (landmark in results!!.landmarks()) {
+            for (normalizedLandmark in landmark) {
+                if(normalizedLandmark.x()>=_picrec[0] && normalizedLandmark.x()<=_picrec[2]
+                    && normalizedLandmark.y()>=_picrec[1] && normalizedLandmark.y()<=_picrec[3]){
+                    return true
+                }
+            }
         }
+        return false
     }
-    // 指が入っていないか TODO Mainで実装　指が一番下のときのbitmapを取得
-    /*private fun picrec_fing(picrec: FloatArray, brect: FloatArray): Boolean {
-        val isX1 = picrec[0] <= brect[2]
-        val isX2 = brect[0] <= picrec[2]
-        val isY1 = picrec[1] <= brect[3]
-        val isY2 = brect[1] <= picrec[3]
-        return if ((isX1 && isX2) && (isY1 && isY2)) {
-            false
-        } else {
-            true
-        }
-    }*/
 
     // 初期化
     fun reset_rec() {
@@ -62,90 +47,46 @@ class HandGesture{
         _istake = org_tak
     }
 
-    // 撮影の範囲と撮影許可を管理 ver1
-    /*private fun pictak(isp: Boolean){
-        // ジェスチャーが Pointing_Up かどうかをチェック
-        isTake[0] = isp
-        if (!isTake[2]) {
-            if (isTake[0]) {
-                // ランドマークの取得
-                // val landmark_x = resultBundle.results.first().landmarks().get(0).get(8).x()
-                // val landmark_y = resultBundle.results.first().landmarks().get(0).get(8).y()
-                val landmark_x = results!!.landmarks().get(0).get(8).x()
-                val landmark_y = results!!.landmarks().get(0).get(8).y()
-                picrec = rec_mm(landmark_x, landmark_y, picrec)
-                isTake[1] = true
-                return
-            }
-            if (isTake[1]) {
-                isTake[1] = false
-                if (!picrec_rule(picrec)) {
-                    reset_rec()
-                    return
-                }
-                /*下と同じもの(TODO)まとめる*/
-                /*
-                val brect = calc_bounding_rect(landmarks)
-                isTake_tmp[2] = picrec_fing(picrec_tmp, brect)
-                if (!isTake_tmp[2]) {
-                    isTake_tmp[3] = true
-                }*/
-                /**/
-            }
-            return
-        }
-        /*上と同じもの*/
-        /*val brect = calc_bounding_rect(landmarks)
-        isTake_tmp[2] = picrec_fing(picrec_tmp, brect)
-        if (!isTake_tmp[2]) {
-            isTake_tmp[3] = true
-        }*/
-        /**/
-        return
-    }*/
-
-    // 手のlandmarkの外接矩形の計算ver3
-    /*private fun calc_bounding_rect(): FloatArray {
-        var brect = org_rec
-        for (landmark in results!!.landmarks()) {
-            for (normalizedLandmark in landmark) {
-                brect = rec_mm(normalizedLandmark.x(), normalizedLandmark.y(), brect)
-            }
-        }
-        return brect
-    }*/
-
-    // 撮影の範囲と撮影許可を管理 ver2
-    private fun pictak(isp: Boolean){
+    // パーで撮影範囲を指定、グーで枠外に出ると撮影する
+    private fun pictak(){
+        // 直前に撮影したならば初期状態にリセット
         if (_istake[1]){
             reset_rec()
         }
-        if (isp) {
+        // ハンドサイン：パー　であるか
+        val open_palm = results!!.gestures().any { gesture ->
+            gesture.get(0).categoryName() == "Open_Palm"
+        }
+        if (open_palm) {
             // ランドマークの取得
-            // val landmark_x = resultBundle.results.first().landmarks().get(0).get(8).x()
-            // val landmark_y = resultBundle.results.first().landmarks().get(0).get(8).y()
-            val landmark_x = results!!.landmarks().get(0).get(8).x()
-            val landmark_y = results!!.landmarks().get(0).get(8).y()
-            _picrec = rec_mm(landmark_x, landmark_y, _picrec)
-            _istake[0] = true
-            return
-        }
-        if (_istake[0]){
-            _istake[0] = false
-            if (!picrec_rule(_picrec)) {
-                reset_rec()
-                return
+            var left = results!!.landmarks().get(0).get(4).x()
+            val top = results!!.landmarks().get(0).get(12).y()
+            var right = results!!.landmarks().get(0).get(20).x()
+            val bottom = results!!.landmarks().get(0).get(0).y()
+            if(left > right){ // 手の甲が手前に見える場合
+                val tmp = left
+                left = right
+                right = tmp
             }
-            _istake[1] = true
+            _picrec = floatArrayOf(left, top, right, bottom)
+            _istake[0] = true
+        }
+        // ハンドサイン：グー　であるか
+        val closed_fist = results!!.gestures().any { gesture ->
+            gesture.get(0).categoryName() == "Closed_Fist"
+        }
+        // 撮影範囲を指定されている　かつ　ハンドサインがグーである　かつ　撮影範囲内に手が入っていない
+        if (_istake[0] && closed_fist && !isFing()){
+            _istake = booleanArrayOf(false, true)
         }
     }
 
-    // ハンドジェスチャーを認識して、撮影判定可能
-    fun handgesture(isp: Boolean){
-        pictak(isp)
+    // MainActivityでhandgestureの判別を実行させる
+    fun handgesture(){
+        pictak()
     }
 
-    // mediapipeのライブラリをセット
+    // mediapipeの判別結果をセット
     fun setResults(gestureRecognizerResult: GestureRecognizerResult){
         results = gestureRecognizerResult
     }

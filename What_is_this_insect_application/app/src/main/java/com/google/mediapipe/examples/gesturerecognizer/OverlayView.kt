@@ -72,41 +72,30 @@ class OverlayView(context: Context?, attrs: AttributeSet?) :
 
     override fun draw(canvas: Canvas){
         super.draw(canvas)
-        /*canvas.drawText("Value: ${hanges.currentPicrec[0]}, ${hanges.currentPicrec[1]}, ${hanges.currentPicrec[2]}, ${hanges.currentPicrec[3]}, " +
-                "${hanges.currentIsTake[0]}, ${hanges.currentIsTake[1]}", 100f, 200f, pointPaint)*/
         results?.let { gestureRecognizerResult ->
             // ハンドサインをしているか
-            val isp = results!!.gestures().any { gesture ->
-                gesture.get(0).categoryName() == "Pointing_Up"
+            val open_palm = results!!.gestures().any { gesture ->
+                gesture.get(0).categoryName() == "Open_Palm"
             }
+            if(open_palm){
+                for(landmark in gestureRecognizerResult.landmarks()) {
+                    for(normalizedLandmark in landmark) {
+                        canvas.drawPoint(
+                            normalizedLandmark.x() * imageWidth * scaleFactor,
+                            normalizedLandmark.y() * imageHeight * scaleFactor,
+                            pointPaint)
+                    }
 
-            if(isp){
-                val landmark_x = results!!.landmarks().get(0).get(8).x()
-                val landmark_y = results!!.landmarks().get(0).get(8).y()
-                canvas.drawText("$landmark_x, $landmark_y", 100f, 200f, pointPaint)
-                canvas.drawPoint(
-                    landmark_x * imageWidth * scaleFactor,
-                    landmark_y * imageHeight * scaleFactor,
-                    pointPaint
-                )
+                    HandLandmarker.HAND_CONNECTIONS.forEach {
+                        canvas.drawLine(
+                            gestureRecognizerResult.landmarks().get(0).get(it!!.start()).x() * imageWidth * scaleFactor,
+                            gestureRecognizerResult.landmarks().get(0).get(it.start()).y() * imageHeight * scaleFactor,
+                            gestureRecognizerResult.landmarks().get(0).get(it.end()).x() * imageWidth * scaleFactor,
+                            gestureRecognizerResult.landmarks().get(0).get(it.end()).y() * imageHeight * scaleFactor,
+                            linePaint)
+                    }
+                }
             }
-            /*for(landmark in gestureRecognizerResult.landmarks()) {
-                for(normalizedLandmark in landmark) {
-                    canvas.drawPoint(
-                        normalizedLandmark.x() * imageWidth * scaleFactor,
-                        normalizedLandmark.y() * imageHeight * scaleFactor,
-                        pointPaint)
-                }
-
-                HandLandmarker.HAND_CONNECTIONS.forEach {
-                    canvas.drawLine(
-                        gestureRecognizerResult.landmarks().get(0).get(it!!.start()).x() * imageWidth * scaleFactor,
-                        gestureRecognizerResult.landmarks().get(0).get(it.start()).y() * imageHeight * scaleFactor,
-                        gestureRecognizerResult.landmarks().get(0).get(it.end()).x() * imageWidth * scaleFactor,
-                        gestureRecognizerResult.landmarks().get(0).get(it.end()).y() * imageHeight * scaleFactor,
-                        linePaint)
-                }
-            }*/
         }
     }
 

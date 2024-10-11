@@ -2,7 +2,10 @@ package com.google.mediapipe.examples.gesturerecognizer
 
 import android.R
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.speech.tts.TextToSpeech
@@ -20,6 +23,7 @@ import java.io.IOException
 import java.util.Locale
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import android.content.Context
 import java.util.logging.Handler
 
 class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
@@ -30,7 +34,6 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
     private var Url: String? = null
     private var text1: String? = null
     private var text2: String? = null
-    // private val insect_names = arrayOf("アメンボ", "アリ", "オサムシ")
     var execService: ExecutorService? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,14 +41,10 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         activityIntroduceBinding = ActivityIntroduceBinding.inflate(layoutInflater)
         setContentView(activityIntroduceBinding.root)
 
-        // Intent putExtra()受取用
+        // 画像名を受け取る
         val imageUriString = intent.getStringExtra("image_uri")
 
-        // uriを直接受け取る方法
-        // val imageUri: Uri? = imageUriString?.let { Uri.parse(it) }
-
-        // これでanswerメソッドから番号を取り出して配列からそれに対応する昆虫の名前を取得
-
+        // 画像名の内、虫の名前を取り出す
         musi = imageUriString!!.substring(0,imageUriString.length-16)
 
         Url = "https://ja.wikipedia.org/wiki/" + musi
@@ -57,7 +56,7 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         Linkify.addLinks(text0, Linkify.ALL)
         val n_furigana = findViewById<FuriganaView>(com.google.mediapipe.examples.gesturerecognizer.R.id.furiganaView)
         val tp = TextPaint()
-        tp.setTextSize(36f);
+        tp.setTextSize(36f)
         val mark_s = 11 // highlight 厚い in text (characters 11-13)
         val mark_e = 13
 
@@ -69,9 +68,12 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
             } catch (e: IOException) {
                 throw RuntimeException(e)
             }
-            text2 = "この虫の種類は" + musi +  hurigana .readText()
-            text1 = /*"カブトムシ（{漢字表記;かんじひょうき}は「{兜虫;かぶとむし}」もしくは「{甲虫;かぶとむし}」[3]、{学名;がくめい}：Trypoxylus dichotomus[4]）は、コウチュウ{目;もく}コガネムシ{科;か}カブトムシ{亜科;あか}カブトムシ{族;ぞく}カブトムシ{属;ぞく} Trypoxylus に{分類;ぶんるい}される{昆虫;こんちゅう}の{種;しゅ}。より{広義;こうぎ}にはカブトムシ{属;ぞく}を{含;ふく}むカブトムシ{亜科;あか} (Dynastinae) に{分類;ぶんるい}される{昆虫;こんちゅう}の{総称;そうしょう}だが、この{項;こう}では{種;しゅ}の{標準和名;ひょうじゅんわめい}としての{狭義;きょうぎ}のカブトムシを{扱;あつか}う。{本州以南;ほんしゅういなん}の{日本;にほん}を{含;ふく}む{東;ひがし}アジアに{分布;ぶんぷ}する。"*/
-                hurigana.huriganagaesi()
+            text2 = "この虫の種類は" + musi + hurigana.readText()
+            if(isInternetAvailable(this)){
+                text1 = hurigana.huriganagaesi()
+            }else{
+                text1 = "インターネットに{接続;せつぞく}してください"
+            }
             n_furigana.post { n_furigana.text_set(tp, text1, mark_s, mark_e) }
         })
         android.os.Handler().postDelayed({
@@ -87,14 +89,12 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
 
         // 戻るボタンの動作
         toolbar.setNavigationOnClickListener {
+            tts?.stop()
             finish()  // RirekiActivityに戻る
         }
 
         // MediaStoreの画像名参照
-        val imageUri = findImageUriByName(imageUriString!!)
-
-        //上と同じ意味の一行
-        //val imageUri = imageUriString.let { findImageUriByName(it) }
+        val imageUri = findImageUriByName(imageUriString)
 
         // uriをimageViewで表示させる
         if (imageUri != null) {
@@ -105,13 +105,7 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
             // 画像が見つからなかった場合の処理
             Toast.makeText(this, "画像が見つかりません", Toast.LENGTH_SHORT).show()
         }
-
-        // 受け取った文字列を表示する
-        //val itemName = intent.getStringExtra("ITEM_NAME")
-        // val itemNameTextView: TextView = findViewById(com.google.mediapipe.examples.gesturerecognizer.R.id.itemNameTextView)
-        // itemNameTextView.text = imageUriString
     }
-
 
     // クラスの中身
     override fun onInit(status: Int) {
@@ -124,13 +118,24 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
 
             // 音声合成の実行
             tts!!.speak(text2, TextToSpeech.QUEUE_FLUSH, null, "utteranceId")
+            if(!isInternetAvailable(this)){
+                tts!!.speak("インターネットに接続してください", TextToSpeech.QUEUE_FLUSH, null, "utteranceId")
+            }
         }
     }
 
+    //　インターネットに接続しているかを判定
+    fun isInternetAvailable(context: Context): Boolean {
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
+        val network = connectivityManager.activeNetwork ?: return false
+        val networkCapabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
 
+        return networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+                networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+    }
 
-
+    // 画像の名前で画像を参照
     fun findImageUriByName(imageName: String): Uri? {
         val contentResolver = this.contentResolver // Activity 内で context は this
         val projection = arrayOf(MediaStore.Images.Media._ID)
@@ -153,6 +158,7 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         }
         return null
     }
+
     // オプションメニューを作成
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(com.google.mediapipe.examples.gesturerecognizer.R.menu.menu_introduce, menu) // メニューを読み込む
@@ -163,6 +169,7 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             com.google.mediapipe.examples.gesturerecognizer.R.id.action_go_to_main -> {
+                tts?.stop()
                 // MainActivityに遷移
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)

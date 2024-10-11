@@ -104,38 +104,6 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         "ホタル"
     )
 
-    private val name_ex = arrayOf(
-        "amenbo",
-        "ari",
-        "osamushi",
-        "ga",
-        "kagerou",
-        "kabutomusi",
-        "kamakiri",
-        "kamikirimusi",
-        "kamemusi",
-        "kawagera",
-        "kumo",
-        "kuwagatamusi",
-        "gengorou",
-        "koganemushi",
-        "gokiburi",
-        "semi",
-        "zoumshi",
-        "tagame",
-        "tamamushi",
-        "dangomushi",
-        "tyou",
-        "tentoumushi",
-        "tonbo",
-        "nanafushi",
-        "hasamimushi",
-        "hati",
-        "batta",
-        "hanmyou",
-        "hotaru"
-    )
-
     @SuppressLint("MissingPermission", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -515,27 +483,24 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         if (gestureCategories.isNotEmpty()) {
             gestureRecognizerResultAdapter.updateResults(gestureCategories.first())
 
-            // ハンドサインをしているか
-            val isp = gestureCategories.any { gesture ->
-                gesture.get(0).categoryName() == "Pointing_Up"
-            }
-            Log.d("bitmapwh", beforecutbitmap.width.toString())
-            Log.d("bitmapwh", beforecutbitmap.height.toString())
-            // val landmark_x = resultBundle.results.first().landmarks().get(0).get(8).x()
-            // val landmark_y = resultBundle.results.first().landmarks().get(0).get(8).y()
+            // HandGestureを実行
             hanges.setResults(resultBundle.results.first())
-            hanges.handgesture(isp)
+            hanges.handgesture()
 
+            // 撮影可能であるか
             if (hanges.currentIsTake[1]){
+                // bitmapを指定した範囲でトリミング
                 val aftercutbitmap = trimming(beforecutbitmap, hanges.currentPicrec)
-                // BitmapをMediaStoreに保存 戻り値は画像名
-                //val musilabel = "カブトムシ"//name_ja[(0..29).random()/*ModelUser.answer(this, aftercutbitmap)*/]
+                // ModelUserで虫を判別し、名前を格納
                 val musilabel = name_ja[ModelUser.answer(this, aftercutbitmap)]
-                if(false/*musilabel == "-1"*/){
+                if(musilabel == "-1"){ // 虫と判別されなかったとき
+                    // HandGestureをリセットする
                     hanges.reset_rec()
                 }else{
+                    // BitmapをMediaStoreに保存 戻り値は画像名
                     val uri_name = saveBitmapToMediaStore(aftercutbitmap, musilabel)
-                    // mCameraHandler!!.captureStill()
+                    mCameraHandler!!.captureStill() // シャッター音
+                    // 画像名をIntroduceに送るのと、画面遷移
                     navigateToIntroduceActivity(uri_name)
                 }
             }
@@ -555,15 +520,14 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         }
         Log.v(TAG, "Results: ${resultBundle.results}")
     }
-    /***********************************追加関数****************************************/
-    // SharedPreferencesにテキストを保存する関数
-    private fun saveTextToSharedPreferences(text: String) {
-        val sharedPreferences = getSharedPreferences("RirekiPrefs", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString("NEW_ITEM", text)
-        editor.apply()  // 保存
+    // putExtraでuriファイル名の送信と画面遷移
+    private fun navigateToIntroduceActivity(uri_name: String) {
+        val intent = Intent(this, IntroduceActivity::class.java)
+        //MediaStoreに保存した画像(URI)の名前を渡す方法
+        intent.putExtra("image_uri", uri_name)
+        startActivity(intent)
     }
-    // Bitmapを指定範囲でトリミングする関数
+    // Bitmapを指定範囲でトリミングする
     private fun cropBitmap(bitmap: Bitmap, cropRect: Rect): Bitmap {
         return Bitmap.createBitmap(
             bitmap,
@@ -573,14 +537,13 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
             cropRect.height()
         )
     }
-
-    // カメラの画像をトリミング()
+    // カメラの画像をトリミングする
     private fun trimming(bitmap: Bitmap, picrec: FloatArray): Bitmap {
         // トリミング範囲を指定
-        val MAXSIZE_X = 2880
-        val MAXSIZE_Y = 1700
+        val MAXSIZE_X = bitmap.width
+        val MAXSIZE_Y = bitmap.height
         val MINSIZE = 0
-        val EXPANTION = intArrayOf(50, 50)
+        val EXPANTION = intArrayOf(50, 50) // TODO
         val l = max((picrec[0]*MAXSIZE_X).toInt()-EXPANTION[0],MINSIZE)
         val t = max((picrec[1]*MAXSIZE_Y).toInt()-EXPANTION[1],MINSIZE)
         val r = min((picrec[2]*MAXSIZE_X).toInt()+EXPANTION[0],MAXSIZE_X)
@@ -593,17 +556,14 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         val dateFormat = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault())
         return dateFormat.format(Date())
     }
-    // putExtraでuriファイル名の送信と画面遷移
-    private fun navigateToIntroduceActivity(uri_name: String) {
-        val intent = Intent(this, IntroduceActivity::class.java)
-        // URIをIntentに渡す
-        //直接渡す方法
-        //intent.putExtra("image_uri", uri.toString())
-        //MediaStoreに保存した画像の名前を渡す方法
-        intent.putExtra("image_uri", uri_name)
-        startActivity(intent)
+    // SharedPreferencesにテキストを保存する関数
+    private fun saveTextToSharedPreferences(text: String) {
+        val sharedPreferences = getSharedPreferences("RirekiPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("NEW_ITEM", text)
+        editor.apply()  // 保存
     }
-
+    // bitmapをMediaStoreにuriとして保存する
     private fun saveBitmapToMediaStore(bitmap: Bitmap, musilabel: String): String {
         val imageName = musilabel + "_" + getCurrentDate() // 画像名を生成
         val contentResolver = this.contentResolver
@@ -630,5 +590,4 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         }
         return imageName
     }
-    /**************************************************************************/
 }
