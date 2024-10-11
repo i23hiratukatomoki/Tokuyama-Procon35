@@ -16,6 +16,15 @@
 ### libuvccameraとusbCameraCommonついて
 この二つのディレクトリは外部カメラを使用する際に利用されています。
 
+### ModelUserActivity.ktについて
+このファイルには合計13個のtfliteモデルを使用して撮影した写真に含まれる昆虫を段階的に認識するプログラムが含まれています。
+
+このファイルはMainActivityで以下のようにして使用されています。
+
+val musilabel = name_ja[ModelUser.answer(this, aftercutbitmap)]
+
+tfliteモデルはassetフォルダに入っています。
+
 ## プロジェクトの構成
 <!-- Treeコマンドを使ってディレクトリ構成を記載 -->
 <pre>
