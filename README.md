@@ -21,9 +21,7 @@
 
 このファイルはMainActivityで以下のようにして使用されています。
 
-<pre>
 val musilabel = name_ja[ModelUser.answer(this, aftercutbitmap)]
-<pre>
     
 tfliteモデルはassetフォルダに入っています。
 
