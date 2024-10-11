@@ -8,5 +8,56 @@
 </p>
 
 ## プロジェクトの構成
-Tokuyama-Procon35/ │ ├── app/ # Androidアプリケーションのソースコード │ ├── src/ # ソースコードとリソースファイル │ │ ├── main/ # メインアプリケーションファイル │ │ │ ├── java/ # Java/Kotlinのコード │ │ │ ├── res/ # レイアウト、画像などのリソース │ ├── build.gradle # Gradleビルド設定 │ ├── models/ # TensorFlowLiteモデルファイル │ ├── README.md # プロジェクトの概要（このファイル） ├── build.gradle # プロジェクト全体のGradle設定 └── settings.gradle # サブプロジェクトの設定
 
+<!-- Treeコマンドを使ってディレクトリ構成を記載 -->
+
+❯ tree -a -I "node_modules|.next|.git|.pytest_cache|static" -L 2
+.
+├── .devcontainer
+│   └── devcontainer.json
+├── .env
+├── .github
+│   ├── action
+│   ├── release-drafter.yml
+│   └── workflows
+├── .gitignore
+├── Makefile
+├── README.md
+├── backend
+│   ├── .vscode
+│   ├── application
+│   ├── docs
+│   ├── manage.py
+│   ├── output
+│   ├── poetry.lock
+│   ├── project
+│   └── pyproject.toml
+├── containers
+│   ├── django
+│   ├── front
+│   ├── mysql
+│   └── nginx
+├── docker-compose.yml
+├── frontend
+│   ├── .gitignore
+│   ├── README.md
+│   ├── __test__
+│   ├── components
+│   ├── features
+│   ├── next-env.d.ts
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── pages
+│   ├── postcss.config.js
+│   ├── public
+│   ├── styles
+│   ├── tailwind.config.js
+│   └── tsconfig.json
+└── infra
+    ├── .gitignore
+    ├── docker-compose.yml
+    ├── main.tf
+    ├── network.tf
+    └── variables.tf
+
+<p align="right">(<a href="#top">トップへ</a>)</p>
