@@ -49,7 +49,7 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
 
         Url = "https://ja.wikipedia.org/wiki/" + musi
         execService = Executors.newSingleThreadExecutor()
-        activityIntroduceBinding.textView.text = "このむしのしゅるいは" + musi
+        activityIntroduceBinding.textView.text = "このむしのしゅるいは" + musi+"です。"
 
         val text0 = findViewById<TextView>(com.google.mediapipe.examples.gesturerecognizer.R.id.textView1)
         text0.text = "さんこうにしたWebサイト:wikipedia\n\nURL:$Url"
@@ -68,7 +68,7 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
             } catch (e: IOException) {
                 throw RuntimeException(e)
             }
-            text2 = "この虫の種類は" + musi + hurigana.readText()
+            text2 = "この虫の種類は" + musi + "です。" +  hurigana.readText()
             if(isInternetAvailable(this)){
                 text1 = hurigana.huriganagaesi()
             }else{
@@ -77,8 +77,13 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
             n_furigana.post { n_furigana.text_set(tp, text1, mark_s, mark_e) }
         })
         android.os.Handler().postDelayed({
-            tts = TextToSpeech(this, this)
-        },15000)
+            if(text2 == null){
+                onseiWait()
+            }
+            else{
+                tts = TextToSpeech(this, this)
+            }
+        },1000)
 
         // Toolbarを設定
         val toolbar: Toolbar = findViewById(com.google.mediapipe.examples.gesturerecognizer.R.id.toolbar)
@@ -106,7 +111,15 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
             Toast.makeText(this, "画像が見つかりません", Toast.LENGTH_SHORT).show()
         }
     }
-
+    fun onseiWait(){
+        android.os.Handler().postDelayed({
+            if (text2 == null) {
+                onseiWait()
+            } else {
+                tts = TextToSpeech(this, this)
+            }
+        },1000)
+    }
     // クラスの中身
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
@@ -170,6 +183,7 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         return when (item.itemId) {
             com.google.mediapipe.examples.gesturerecognizer.R.id.action_go_to_main -> {
                 tts?.stop()
+                tts?.shutdown()
                 // MainActivityに遷移
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
