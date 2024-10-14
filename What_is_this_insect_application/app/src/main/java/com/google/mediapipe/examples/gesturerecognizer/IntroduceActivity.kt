@@ -95,6 +95,7 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         // 戻るボタンの動作
         toolbar.setNavigationOnClickListener {
             tts?.stop()
+            tts?.shutdown()
             finish()  // RirekiActivityに戻る
         }
 
@@ -194,5 +195,23 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
     }
     override fun onBackPressed() {
         finish()
+    }
+
+    //Activityがストップした時にバックグラウンド再生をさせないようにする
+    override fun onStop() {
+        super.onStop()
+        if (tts!=null) {
+            tts?.stop()
+            tts?.shutdown()
+        }
+    }
+
+    //onStopメソッドの保険
+    override fun onDestroy() {
+        super.onDestroy()
+        if (tts!=null) {
+            tts?.stop()
+            tts?.shutdown()
+        }
     }
 }
