@@ -17,13 +17,11 @@ import android.view.View
 import android.view.View.OnLongClickListener
 import android.widget.Button
 import android.widget.CompoundButton
-import android.widget.ImageButton
 import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.lifecycle.lifecycleScope
 import com.google.mediapipe.examples.gesturerecognizer.fragment.GestureRecognizerResultsAdapter
 import com.google.mediapipe.tasks.vision.core.RunningMode
-import com.google.mediapipe.tasks.vision.gesturerecognizer.GestureRecognizerResult
 import com.serenegiant.common.BaseActivity
 import com.serenegiant.usb_libuvccamera.CameraDialog
 import com.serenegiant.usb_libuvccamera.CameraDialog.CameraDialogParent
@@ -285,7 +283,7 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
             while (isCapturing && mUVCCameraView != null) {
                 mPicture = mUVCCameraView!!.captureStillImage()
                 if (mPicture != null) {
-                    beforecutbitmap = mPicture!!//hanges.trimming(bitmap)
+                    beforecutbitmap = mPicture!!
                     //変換メソッドを呼び出し、Bitmap型のmPictureを変換
                     //imageProxy = bitmapToImageProxy(mPicture!!)
                     if(DEBUG) {
@@ -298,8 +296,8 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
                 } else {
                     Log.e(TAG, "画像キャプチャに失敗しました")
                 }
-                //500ミリ秒ごとに認識を行うように設定している
-                delay(500)
+                //250ミリ秒ごとに認識を行うように設定している
+                delay(250)
             }
         }
     }
@@ -479,33 +477,37 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
     //abstract fun onResults(resultBundle: GestureRecognizerHelper.ResultBundle)
     override fun onResults(resultBundle: GestureRecognizerHelper.ResultBundle) {
         // 結果の取得
-        val gestureCategories = resultBundle.results.first().gestures()
+        val results = resultBundle.results.first()
+        val gestureCategories = results.gestures()
         if (gestureCategories.isNotEmpty()) {
             gestureRecognizerResultAdapter.updateResults(gestureCategories.first())
-
-            // HandGestureを実行
-            hanges.setResults(resultBundle.results.first())
-            hanges.handgesture()
-
-            // 撮影可能であるか
-            if (hanges.currentIsTake[1]){
-                // bitmapを指定した範囲でトリミング
-                val aftercutbitmap = trimming(beforecutbitmap, hanges.currentPicrec)
-                // ModelUserで虫を判別し、名前を格納
-                val musilabel = name_ja[ModelUser.answer(this, aftercutbitmap)]
-                if(musilabel == "-1"){ // 虫と判別されなかったとき
-                    // HandGestureをリセットする
-                    hanges.reset_rec()
-                }else{
-                    // BitmapをMediaStoreに保存 戻り値は画像名
-                    val uri_name = saveBitmapToMediaStore(aftercutbitmap, musilabel)
-                    mCameraHandler!!.captureStill() // シャッター音
-                    // 画像名をIntroduceに送るのと、画面遷移
-                    navigateToIntroduceActivity(uri_name)
-                }
-            }
+            // resultsをセット
+            hanges.setResults(results)
         } else {
             gestureRecognizerResultAdapter.updateResults(emptyList())
+            // resultsをセット
+            hanges.setResults(null)
+        }
+        // handgestureを実行
+        hanges.handgesture()
+        // 撮影可能であるか
+        if (hanges.currentIsTake[1]){
+            // bitmapを指定した範囲でトリミング
+            val aftercutbitmap = trimming(beforecutbitmap, hanges.currentPicrec)
+            // ModelUserで虫を判別し、名前を格納
+            val musilabel = name_ja[ModelUser.answer(this, aftercutbitmap)]
+            if(musilabel == "-1"){ // 虫と判別されなかったとき
+                // HandGestureをリセットする
+                hanges.reset_rec()
+            }else{
+                // BitmapをMediaStoreに保存 戻り値は画像名
+                val uri_name = saveBitmapToMediaStore(aftercutbitmap, musilabel)
+                // HandGestureをリセットする
+                hanges.reset_rec()
+                mCameraHandler!!.captureStill() // シャッター音
+                // 画像名をIntroduceに送るのと、画面遷移
+                navigateToIntroduceActivity(uri_name)
+            }
         }
         runOnUiThread {
             // オーバーレイへの結果の設定

@@ -45,8 +45,6 @@ class OverlayView(context: Context?, attrs: AttributeSet?) :
     private var imageWidth: Int = 1
     private var imageHeight: Int = 1
 
-    val hanges = HandGesture()
-
     init {
         initPaints()
     }
@@ -77,7 +75,17 @@ class OverlayView(context: Context?, attrs: AttributeSet?) :
             val open_palm = results!!.gestures().any { gesture ->
                 gesture.get(0).categoryName() == "Open_Palm"
             }
+            val closed_fist = results!!.gestures().any { gesture ->
+                gesture.get(0).categoryName() == "Closed_Fist"
+            }
             if(open_palm){
+                linePaint.color =
+                    ContextCompat.getColor(context!!, R.color.mp_color_error)
+            }else if(closed_fist){
+                linePaint.color =
+                    ContextCompat.getColor(context!!, R.color.mp_color_primary)
+            }
+            if(open_palm || closed_fist){
                 for(landmark in gestureRecognizerResult.landmarks()) {
                     for(normalizedLandmark in landmark) {
                         canvas.drawPoint(

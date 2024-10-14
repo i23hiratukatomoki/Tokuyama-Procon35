@@ -4,14 +4,14 @@ package com.google.mediapipe.examples.gesturerecognizer
 val hanges = HandGesture()
 */
 
-import com.google.mediapipe.tasks.vision.gesturerecognizer.GestureRecognizerResult
 import android.util.Log
+import com.google.mediapipe.tasks.vision.gesturerecognizer.GestureRecognizerResult
 
 class HandGesture{
     // 初期値の定数
     private val org_rec = floatArrayOf(10f, 10f, 0f, 0f) // [left,top,right,bottom]
     private val org_tak =
-        booleanArrayOf(false, false) // [0:直前にハンドサイン, 1:撮影可能か]
+        booleanArrayOf(false, false, false, false) // [0:最低一回パー, 1:撮影可能か, 2:直前にグー, 3:パーの後にグー以外]
     // mediapipeの判別結果を取得する変数
     private var results: GestureRecognizerResult? = null
     // HandGesture内部で使うための変数
@@ -49,10 +49,6 @@ class HandGesture{
 
     // パーで撮影範囲を指定、グーで枠外に出ると撮影する
     private fun pictak(){
-        // 直前に撮影したならば初期状態にリセット
-        if (_istake[1]){
-            reset_rec()
-        }
         // ハンドサイン：パー　であるか
         val open_palm = results!!.gestures().any { gesture ->
             gesture.get(0).categoryName() == "Open_Palm"
@@ -70,24 +66,38 @@ class HandGesture{
             }
             _picrec = floatArrayOf(left, top, right, bottom)
             _istake[0] = true
+            // パーの後にすぐ
+            _istake[2] = false
         }
         // ハンドサイン：グー　であるか
         val closed_fist = results!!.gestures().any { gesture ->
             gesture.get(0).categoryName() == "Closed_Fist"
         }
+        // パー→グーのあとに別のハンドジェスチャーがあっても判定できるようにする条件
+        if(closed_fist){
+            _istake[2] = true
+        }
+    }
+
+    private fun isTakePicture(hand: Boolean){
         // 撮影範囲を指定されている　かつ　ハンドサインがグーである　かつ　撮影範囲内に手が入っていない
-        if (_istake[0] && closed_fist && !isFing()){
-            _istake = booleanArrayOf(false, true)
+        if (_istake[0] && _istake[2] && (hand || !isFing())){
+            _istake[1] = true
         }
     }
 
     // MainActivityでhandgestureの判別を実行させる
     fun handgesture(){
-        pictak()
+        if(results != null){
+            pictak()
+            isTakePicture(false)
+        }else{
+            isTakePicture(true)
+        }
     }
 
     // mediapipeの判別結果をセット
-    fun setResults(gestureRecognizerResult: GestureRecognizerResult){
+    fun setResults(gestureRecognizerResult: GestureRecognizerResult?){
         results = gestureRecognizerResult
     }
 }
