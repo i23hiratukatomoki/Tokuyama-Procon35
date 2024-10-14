@@ -11,7 +11,7 @@ class HandGesture{
     // 初期値の定数
     private val org_rec = floatArrayOf(10f, 10f, 0f, 0f) // [left,top,right,bottom]
     private val org_tak =
-        booleanArrayOf(false, false, false, false) // [0:最低一回パー, 1:撮影可能か, 2:直前にグー, 3:パーの後にグー以外]
+        booleanArrayOf(false, false, false) // [0:最低一回パー, 1:撮影可能か, 2:直前にグー]
     // mediapipeの判別結果を取得する変数
     private var results: GestureRecognizerResult? = null
     // HandGesture内部で使うための変数
@@ -66,7 +66,6 @@ class HandGesture{
             }
             _picrec = floatArrayOf(left, top, right, bottom)
             _istake[0] = true
-            // パーの後にすぐ
             _istake[2] = false
         }
         // ハンドサイン：グー　であるか

@@ -75,7 +75,6 @@ public class ModelUser {
             case 1://アメンボ
             case 7://カマキリ
             case 24://ナナフシ
-            case 27://バッタ
                 return using_model2_1(context);
             case 2://アリ
             case 25://ハサミムシ
@@ -104,7 +103,7 @@ public class ModelUser {
             case 4://ガ
             case 21://チョウ
                 return using_model2_7(context);
-            default://クモ、ダンゴムシまたは虫を認識できなかった場合
+            default://クモ、ダンゴムシ、バッタまたは虫を認識できなかった場合
                 return ans+1;
 
         }
@@ -123,8 +122,8 @@ public class ModelUser {
         float most = -1;
         //推論メソッドを使っている。(resultに結果を格納)
         try {
-            // model2_1は4クラスなのでclasses_num=4で推論を実行
-            result = runInference(4);
+            // model2_1は3クラスなのでclasses_num=3で推論を実行
+            result = runInference(3);
             System.out.println("model2_1 推論成功");
             Log.d("Inference", "Prediction model2_1: " + Arrays.toString(result));
         } catch (Exception e) {
@@ -152,8 +151,6 @@ public class ModelUser {
                 return 7;
             case 2://ナナフシ
                 return 24;
-            case 3://バッタ
-                return 27;
             default://虫を認識できなかった場合
                 return 0;
         }

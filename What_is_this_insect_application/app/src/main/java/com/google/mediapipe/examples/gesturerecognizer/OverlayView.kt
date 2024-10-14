@@ -59,7 +59,7 @@ class OverlayView(context: Context?, attrs: AttributeSet?) :
 
     private fun initPaints() {
         linePaint.color =
-            ContextCompat.getColor(context!!, R.color.mp_color_primary)
+            ContextCompat.getColor(context!!, R.color.mp_color_secondary)
         linePaint.strokeWidth = LANDMARK_STROKE_WIDTH
         linePaint.style = Paint.Style.STROKE
 
@@ -78,30 +78,32 @@ class OverlayView(context: Context?, attrs: AttributeSet?) :
             val closed_fist = results!!.gestures().any { gesture ->
                 gesture.get(0).categoryName() == "Closed_Fist"
             }
+            // パー：赤、グー：青、他：黄色
             if(open_palm){
                 linePaint.color =
                     ContextCompat.getColor(context!!, R.color.mp_color_error)
             }else if(closed_fist){
                 linePaint.color =
                     ContextCompat.getColor(context!!, R.color.mp_color_primary)
+            }else{
+                linePaint.color =
+                    ContextCompat.getColor(context!!, R.color.mp_color_secondary)
             }
-            if(open_palm || closed_fist){
-                for(landmark in gestureRecognizerResult.landmarks()) {
-                    for(normalizedLandmark in landmark) {
-                        canvas.drawPoint(
-                            normalizedLandmark.x() * imageWidth * scaleFactor,
-                            normalizedLandmark.y() * imageHeight * scaleFactor,
-                            pointPaint)
-                    }
+            for(landmark in gestureRecognizerResult.landmarks()) {
+                for(normalizedLandmark in landmark) {
+                    canvas.drawPoint(
+                        normalizedLandmark.x() * imageWidth * scaleFactor,
+                        normalizedLandmark.y() * imageHeight * scaleFactor,
+                        pointPaint)
+                }
 
-                    HandLandmarker.HAND_CONNECTIONS.forEach {
-                        canvas.drawLine(
-                            gestureRecognizerResult.landmarks().get(0).get(it!!.start()).x() * imageWidth * scaleFactor,
-                            gestureRecognizerResult.landmarks().get(0).get(it.start()).y() * imageHeight * scaleFactor,
-                            gestureRecognizerResult.landmarks().get(0).get(it.end()).x() * imageWidth * scaleFactor,
-                            gestureRecognizerResult.landmarks().get(0).get(it.end()).y() * imageHeight * scaleFactor,
-                            linePaint)
-                    }
+                HandLandmarker.HAND_CONNECTIONS.forEach {
+                    canvas.drawLine(
+                        gestureRecognizerResult.landmarks().get(0).get(it!!.start()).x() * imageWidth * scaleFactor,
+                        gestureRecognizerResult.landmarks().get(0).get(it.start()).y() * imageHeight * scaleFactor,
+                        gestureRecognizerResult.landmarks().get(0).get(it.end()).x() * imageWidth * scaleFactor,
+                        gestureRecognizerResult.landmarks().get(0).get(it.end()).y() * imageHeight * scaleFactor,
+                        linePaint)
                 }
             }
         }
