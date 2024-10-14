@@ -24,15 +24,15 @@ public class Hurigana {
                 try {
                         // 判別する虫の名前とそれぞれの範囲
                         String[] name = { "アメンボ", "アリ", "オサムシ", "ガ", "カゲロウ", "カブトムシ", "カマキリ", "カミキリムシ", "カメムシ", "カワゲラ",
-                                "クモ",
-                                "クワガタムシ", "ゲンゴロウ", "コガネムシ", "ゴキブリ", "セミ", "ゾウムシ", "タガメ", "タマムシ", "ダンゴムシ", "チョウ",
-                                "テントウムシ", "トンボ", "ナナフシ", "ハサミムシ", "ハチ", "バッタ", "ハンミョウ", "ホタル" };
+                                        "クモ",
+                                        "クワガタムシ", "ゲンゴロウ", "コガネムシ", "ゴキブリ", "セミ", "ゾウムシ", "タガメ", "タマムシ", "ダンゴムシ", "チョウ",
+                                        "テントウムシ", "トンボ", "ナナフシ", "ハサミムシ", "ハチ", "バッタ", "ハンミョウ", "ホタル" };
                         int[] hajime = { 4, 2, 1, 0, -1, 5, -1, 0, 2, -1, -1, -1, 9, -1, 0, -1, 2, 8, -1, -1, -1, 1, -1,
-                                -1, 1,
-                                -1, -1, -1, -1 };
+                                        -1, 1,
+                                        -1, -1, -1, -1 };
                         int[] owari = { 9, 4, 4, 3, 1, 7, 2, 3, 6, 3, 2, 2, 11, 3, 3, 2, 4, 10, 2, 2, 2, 4, 3, 1, 4, 2,
-                                2, 2,
-                                2 };
+                                        2, 2,
+                                        2 };
 
                         // nameのどれにも当てはまらなかったら時の値
                         int hanni1 = 0;
@@ -115,10 +115,10 @@ public class Hurigana {
                                         sb.append(c);
                                 }
                                 hira = sb.toString();
-                                read.append(hira);
 
                                 if (yomi.length() == 0) {
                                         huri.append(moto);
+                                        read.append(moto);
                                 } else {
                                         // 文字を一つずつ判定し、漢字だったらRubyタグをつけて出力
                                         int countHira = 0; // hiraの現在のインデックスを表す
@@ -132,15 +132,15 @@ public class Hurigana {
                                                         }
                                                         kanji.append(motoC); // kanjiは漢字部分を保持するためmotoCをkanjiに追加
                                                 } else { // 漢字ではない場合
-                                                        // kanjiの長さが0より大きい場合、ふりがなをつける
+                                                         // kanjiの長さが0より大きい場合、ふりがなをつける
                                                         if (kanji.length() > 0) {
                                                                 // カタカナをひらがなに変換
                                                                 char hiraC = motoC;
                                                                 if ((motoC >= '\u30A1')
-                                                                        && (motoC <= '\u30F6')) { // カタカナの範囲
+                                                                                && (motoC <= '\u30F6')) { // カタカナの範囲
                                                                         hiraC -= 0x60;
                                                                 } else if ((motoC >= '\u30FD')
-                                                                        && (motoC <= '\u30FE')) { // カタカナの繰り返し記号の範囲
+                                                                                && (motoC <= '\u30FE')) { // カタカナの繰り返し記号の範囲
                                                                         hiraC -= 0x60;
                                                                 }
                                                                 for (; countHira < hira.length(); countHira++) {
@@ -148,24 +148,25 @@ public class Hurigana {
                                                                                 break;
                                                                         }
                                                                 }
-                                                                // kanjiをString型に変換したものとhiraのstartからcountの間の文字列をRubyタグをつけて出力
+                                                                // kanjiをString型に変換したものとhiraのstartからcountの間の文字列
                                                                 huri.append("{" + kanji + ";"
-                                                                        + hira.substring(start,
-                                                                        countHira)
-                                                                        + "}");
+                                                                                + hira.substring(start,
+                                                                                                countHira)
+                                                                                + "}");
                                                                 // 次の感じに備えてkanjiとstartを初期状態にする
                                                                 kanji = new StringBuilder();
                                                                 start = -1;
                                                         }
                                                         // 漢字ではないためそのまま出力
                                                         huri.append(moto.charAt(j));
+                                                        read.append(moto.charAt(j));
                                                         countHira++;
                                                 }
                                         }
                                         // kanjiの長さが0より大きい場合、for文で残った部分を出力
                                         if (kanji.length() > 0) {
                                                 huri.append("{" + kanji + ";" + hira.substring(start)
-                                                        + "}");
+                                                                + "}");
                                                 kanji = new StringBuilder();
                                         }
                                 }
@@ -176,20 +177,29 @@ public class Hurigana {
                 }
 
         }
-        public String huriganagaesi () {
-                Log.d("hurigana",huri.toString());
+
+        public String huriganagaesi() {
+                Log.d("hurigana", huri.toString());
                 return huri.toString();
         }
 
         public String readText() {
                 String text = read.toString();
-                Log.d("hurigana", text);
                 StringBuilder string = new StringBuilder();
+                boolean inParentheses = false; // 括弧内かどうか判定する
                 char c;
                 for (int i = 0; i < text.length(); i++) {
-                        c = text.charAt(i);
-                        if (!((c == '（') || (c == '）') || (c == '{') || (c == '}') || (c == '「') || (c == '」')
-                                || (c == '『') || (c == '』'))) {
+                        c = read.charAt(i);
+                        if (c == '（') { // 括弧内である
+                                inParentheses = true;
+                        }
+                        if (c == '）') { // 括弧外の時
+                                inParentheses = false;
+                                i++;
+                                c = read.charAt(i);
+                        }
+                        if (!inParentheses && (c != '）') && (c != '{') && (c != '}') && (c != '「') && (c != '」')
+                                        && (c != '『') && (c != '』')) {
                                 string.append(c);
                         }
                 }
