@@ -153,7 +153,7 @@ public class Hurigana {
                                                                                 + hira.substring(start,
                                                                                                 countHira)
                                                                                 + "}");
-                                                                read.append(hira.substring(start));
+                                                                read.append(hira.substring(start, countHira));
                                                                 // 次の感じに備えてkanjiとstartを初期状態にする
                                                                 kanji = new StringBuilder();
                                                                 start = -1;
@@ -168,6 +168,7 @@ public class Hurigana {
                                         if (kanji.length() > 0) {
                                                 huri.append("{" + kanji + ";" + hira.substring(start)
                                                                 + "}");
+                                                read.append(hira.substring(start));
                                                 kanji = new StringBuilder();
                                         }
                                 }
