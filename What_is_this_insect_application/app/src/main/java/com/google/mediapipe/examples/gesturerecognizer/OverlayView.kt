@@ -16,23 +16,17 @@
 package com.google.mediapipe.examples.gesturerecognizer
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import com.google.mediapipe.tasks.vision.core.RunningMode
 import com.google.mediapipe.tasks.vision.gesturerecognizer.GestureRecognizerResult
 import com.google.mediapipe.tasks.vision.handlandmarker.HandLandmarker
 import kotlin.math.max
 import kotlin.math.min
-import androidx.activity.viewModels
 
 class OverlayView(context: Context?, attrs: AttributeSet?) :
     View(context, attrs) {
@@ -46,14 +40,6 @@ class OverlayView(context: Context?, attrs: AttributeSet?) :
     private var imageHeight: Int = 1
 
     init {
-        initPaints()
-    }
-
-    fun clear() {
-        results = null
-        linePaint.reset()
-        pointPaint.reset()
-        invalidate()
         initPaints()
     }
 

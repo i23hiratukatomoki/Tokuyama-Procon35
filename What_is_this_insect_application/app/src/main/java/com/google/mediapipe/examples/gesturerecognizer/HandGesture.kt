@@ -1,10 +1,5 @@
 package com.google.mediapipe.examples.gesturerecognizer
 
-/*呼び出し方法
-val hanges = HandGesture()
-*/
-
-import android.util.Log
 import com.google.mediapipe.tasks.vision.gesturerecognizer.GestureRecognizerResult
 
 class HandGesture{
@@ -20,13 +15,6 @@ class HandGesture{
     // MainActivityで取得するための変数
     val currentIsTake: BooleanArray get() = _istake
     val currentPicrec: FloatArray get() = _picrec
-
-    /*data class _picrec(
-        val left: Float,
-        val bottom: Float,
-        val right: Float,
-        val top: Float
-    )*/
 
     // 指が撮影範囲に入っていないか
     private fun isFing(): Boolean {

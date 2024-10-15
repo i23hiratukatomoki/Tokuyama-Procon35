@@ -20,7 +20,6 @@ import android.widget.CompoundButton
 import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.lifecycle.lifecycleScope
-import com.google.mediapipe.examples.gesturerecognizer.fragment.GestureRecognizerResultsAdapter
 import com.google.mediapipe.tasks.vision.core.RunningMode
 import com.serenegiant.common.BaseActivity
 import com.serenegiant.usb_libuvccamera.CameraDialog
@@ -53,20 +52,17 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
     private var mCameraHandler: UVCCameraHandler? = null
     private var mUVCCameraView: CameraViewInterface? = null
     private var mCameraButton: ToggleButton? = null //UVCcameraのON・OFF切り替えボタン
-    //private var mCaptureButton: ImageButton? = null //撮影用ボタン
     private var mPicture: Bitmap? = null //撮影した画像が入るBitmap
 
     private lateinit var backgroundExecutor: ExecutorService //ジェスチャー認識のためのスレッド
     private lateinit var gestureRecognizerHelper: GestureRecognizerHelper
-    // アダプターのインスタンスを保持するための変数
-    private lateinit var gestureRecognizerResultAdapter: GestureRecognizerResultsAdapter
     private lateinit var overlay: OverlayView //実際のハンドジェスチャー認識による手のマークアップはこのオーバーレイ上で行っている
     private var isCapturing = false
 
     // HandGestureのインスタンス
     val hanges = HandGesture()
 
-    // Width: 2880, Height: 1700
+    // bitmapを取得
     private lateinit var beforecutbitmap : Bitmap
 
     private val name_ja = arrayOf(
@@ -113,10 +109,6 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         mCameraButton = findViewById<View>(R.id.camera_button) as ToggleButton
         mCameraButton!!.setOnCheckedChangeListener(mOnCheckedChangeListener)
 
-        //mCaptureButton = findViewById<View>(R.id.capture_button) as ImageButton
-        //mCaptureButton!!.setOnClickListener { v: View? -> captureItem() }
-        //mCaptureButton!!.setVisibility(View.INVISIBLE)
-
         val view = findViewById<View>(R.id.camera_view)
         view.setOnLongClickListener(mOnLongClickListener)
         mUVCCameraView = view as CameraViewInterface
@@ -143,14 +135,6 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
             // リスナーを設定
             gestureRecognizerHelper.setupGestureRecognizer()
         }
-
-        // RecyclerViewの初期化
-        //val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        gestureRecognizerResultAdapter = GestureRecognizerResultsAdapter()
-        //recyclerView.adapter = gestureRecognizerResultAdapter
-
-        // RecyclerView のレイアウトマネージャーを設定
-        //recyclerView.layoutManager = LinearLayoutManager(this)
 
         // オーバーレイの初期化
         overlay = findViewById(R.id.overlay)
@@ -186,7 +170,6 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         queueEvent({ mCameraHandler!!.close() }, 0)
         if (mUVCCameraView != null) mUVCCameraView!!.onPause()
         setCameraButton(false)
-        //mCaptureButton!!.setVisibility(View.INVISIBLE)
         mUSBMonitor!!.unregister()
         //ジェスチャー認識用バックグラウンド処理を初期化
         backgroundExecutor = Executors.newSingleThreadExecutor()
@@ -200,14 +183,6 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
             // リスナーを設定
             gestureRecognizerHelper.setupGestureRecognizer()
         }
-
-        // RecyclerViewの初期化
-        //val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        gestureRecognizerResultAdapter = GestureRecognizerResultsAdapter()
-        //recyclerView.adapter = gestureRecognizerResultAdapter
-
-        // RecyclerView のレイアウトマネージャーを設定
-        //recyclerView.layoutManager = LinearLayoutManager(this)
 
         // オーバーレイの初期化
         overlay = findViewById(R.id.overlay)
@@ -250,7 +225,6 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
                     CameraDialog.showDialog(this@MainActivity)
                 } else {
                     mCameraHandler!!.close()
-                    //mCaptureButton!!.setVisibility(View.INVISIBLE)
                     setCameraButton(false)
                 }
             }
@@ -258,7 +232,7 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
 
     override fun checkPermissionResult(requestCode: Int, permission: String, result: Boolean) {
         super.checkPermissionResult(requestCode, permission, result)
-        if (!result && permission != null) {
+        if (!result) {
             setCameraButton(false)
         }
     }
@@ -284,8 +258,6 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
                 mPicture = mUVCCameraView!!.captureStillImage()
                 if (mPicture != null) {
                     beforecutbitmap = mPicture!!
-                    //変換メソッドを呼び出し、Bitmap型のmPictureを変換
-                    //imageProxy = bitmapToImageProxy(mPicture!!)
                     if(DEBUG) {
                         Log.v(TAG, "recognizeHandメソッドが呼び出されます")
                     }
@@ -296,36 +268,12 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
                 } else {
                     Log.e(TAG, "画像キャプチャに失敗しました")
                 }
-                //250ミリ秒ごとに認識を行うように設定している
+                //400ミリ秒ごとに認識を行うように設定している
                 delay(400)
             }
         }
     }
 
-    // このメソッドは呼び出される際にバックグラウンド実行されている。
-    /*
-    private fun recognizeHand(imageProxy: ImageProxy) {
-        Log.d(TAG, "startCaptureImage -> recognizeHandが実行されました")
-        if (!isGestureRecognizerInitialized) {
-            Log.v(TAG, "GestureRecognizer is not initialized yet.")
-            imageProxy.close()
-            return
-        }
-
-        try {
-            Log.d(TAG, "recognizeHandメソッドを実行")
-            /*
-            val bitmap = gestureRecognizerHelper.recognizeLiveStream(
-                imageProxy = imageProxy)
-            */
-            val bitmap = mPicture?.let { gestureRecognizerHelper.recognizeLiveStream(it) }
-        } catch (e: Exception) {
-            Log.e(TAG, "Error in recognizeHand: ${e.message}")
-        } finally {
-            imageProxy.close()
-        }
-    }
-    */
     private fun recognizeHand(bitmap: Bitmap) {
 
         Log.d(TAG, "startCaptureImage -> recognizeHandが実行されました")
@@ -337,43 +285,6 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         } catch (e: Exception) {
             Log.e(TAG, "Error in recognizeHand: ${e.message}")
         } finally {
-            //imageProxy.close()
-        }
-    }
-
-    //画面下部のカメラボタンを押した時の処理(Bitmapで画像を受け取るだけで別に特に何をするというメソッドではない)
-    private fun captureItem() {
-        if (mUVCCameraView != null) {
-            // 非同期で実行する処理
-            Thread {
-                mPicture = mUVCCameraView!!.captureStillImage()
-                runOnUiThread {
-                    if (mPicture != null) {
-                        Log.v(TAG, "Success: capture UVCcameraView")
-                        Toast.makeText(
-                            this@MainActivity,
-                            "Success: capture UVCcameraView",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        //insectText.setText("Success: capture mPicture");
-                        //String insect_name = Arrays.toString(ModelUser.answer(this, mPicture));
-                        //insectText.setText(insect_name);
-                    } else {
-                        Log.v(TAG, "ERROR: capture UVCcameraView")
-                        Toast.makeText(
-                            this@MainActivity,
-                            "ERROR: capture UVCcameraView",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        //insectText.setText("ERROR: capture mPicture");
-                    }
-                }
-            }.start()
-        } else {
-            Log.v(
-                TAG,
-                "カメラの初期化が行われていなかったためUSBカメラからの画像の取得に失敗しました"
-            )
         }
     }
 
@@ -399,11 +310,6 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
                     mCameraButton!!.setOnCheckedChangeListener(mOnCheckedChangeListener)
                 }
             }
-            /*
-            if (!isOn && mCaptureButton != null) {
-                mCaptureButton!!.setVisibility(View.INVISIBLE)
-            }
-            */
         }, 0)
     }
 
@@ -415,7 +321,6 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         }
         mSurface = Surface(st)
         mCameraHandler!!.startPreview(mSurface)
-        //runOnUiThread { mCaptureButton!!.setVisibility(View.VISIBLE) }
     }
 
     private val mOnDeviceConnectListener: LibUVCCameraUSBMonitor.OnDeviceConnectListener =
@@ -479,13 +384,10 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         // 結果の取得
         val results = resultBundle.results.first()
         val gestureCategories = results.gestures()
+        // resultsをセット
         if (gestureCategories.isNotEmpty()) {
-            gestureRecognizerResultAdapter.updateResults(gestureCategories.first())
-            // resultsをセット
             hanges.setResults(results)
         } else {
-            gestureRecognizerResultAdapter.updateResults(emptyList())
-            // resultsをセット
             hanges.setResults(null)
         }
         // handgestureを実行

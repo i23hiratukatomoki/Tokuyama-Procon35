@@ -68,41 +68,13 @@ public class QuadraticOptimizer
         for (int i = 0; i < h.length; i++)
             for (int j = 0; j < i; j++)
                 h[i][j] = h[j][i];
-        
-        /*
-        // Debug
-        //Log.w("newton_solve", "<========================================>");
-        Log.w("newton_solve", String.format("phi = %f", phi(sigma, x)));
-        
-        // Debug
-        String str = "";
-        for (int i = 0; i < d.length; i++)
-            str += String.format("%.3f ", d[i]);
-        Log.w("newton_solve", "d = [ " + str + "]");
-        
-        // Debug
-        for (int i = 0; i < h.length; i++) {
-            str = "";
-            for (int j = 0; j < h[0].length; j++)
-                str += String.format("%.3f ", h[i][j]);
-            Log.w("newton_solve", String.format("h[%02d] = [ %s]", i, str));
-        }
-        */
-        
+
         // Linear system solver
         float p[] = gs_solver(h, d);
         
         // Iteration
         for (int i = 0; i < x.length; i++)
             x[i] = x[i] - (m_wolfe_gamma * p[i]);
-        
-        /*
-        // Debug
-        str = "";
-        for (int i = 0; i < x.length; i++)
-            str += String.format("%.3f ", x[i]);
-        Log.w("newton_solve", "x = [ " + str + "]");
-        */
     }
     
     // Gauss-Seidel solver
