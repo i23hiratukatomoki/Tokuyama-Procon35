@@ -4,7 +4,7 @@
             "outputFile": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-49:/values-xlarge-v4/values-xlarge-v4.xml",
             "map": [
                 {
-                    "source": "/Users/kyo/.gradle/caches/transforms-4/6e4fd9298a4e7b978e028939ecaee559/transformed/appcompat-1.5.1/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "source": "/Users/hiratsukatomoki/.gradle/caches/transforms-4/6e4fd9298a4e7b978e028939ecaee559/transformed/appcompat-1.5.1/res/values-xlarge-v4/values-xlarge-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",

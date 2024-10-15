@@ -1,22 +1,26 @@
 [
     {
-        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_main.xml",
-        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_main.xml"
+        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_rireki.xml",
+        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_rireki.xml"
     },
     {
-        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/item_gesture_recognizer_result.xml",
-        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/item_gesture_recognizer_result.xml"
+        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_introduce.xml",
+        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_introduce.xml"
+    },
+    {
+        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/item_gesture_recognizer_result.xml",
+        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/item_gesture_recognizer_result.xml"
+    },
+    {
+        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_main.xml",
+        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/item_rireki.xml",
+        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/item_rireki.xml"
     },
     {
         "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_introduce.xml",
         "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_introduce.xml"
-    },
-    {
-        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_rireki.xml",
-        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_rireki.xml"
-    },
-    {
-        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/item_rireki.xml",
-        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/item_rireki.xml"
     }
 ]

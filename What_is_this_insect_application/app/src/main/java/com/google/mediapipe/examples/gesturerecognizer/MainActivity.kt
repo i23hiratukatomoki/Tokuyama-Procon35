@@ -297,7 +297,7 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
                     Log.e(TAG, "画像キャプチャに失敗しました")
                 }
                 //250ミリ秒ごとに認識を行うように設定している
-                delay(250)
+                delay(400)
             }
         }
     }

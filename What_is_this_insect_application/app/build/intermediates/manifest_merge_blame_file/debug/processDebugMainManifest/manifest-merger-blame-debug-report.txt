@@ -26,200 +26,200 @@
 26
 27    <!-- Enable instant app support -->
 28    <dist:module dist:instant="true" />
-28-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:23:5-40
-28-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:23:18-37
+28-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:23:5-40
+28-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:23:18-37
 29
 30    <!-- Declare features -->
 31    <uses-feature android:name="android.hardware.camera" />
-31-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:26:5-60
-31-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:26:19-57
+31-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:26:5-60
+31-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:26:19-57
 32
 33    <!-- Declare permissions -->
 34    <uses-permission android:name="android.permission.CAMERA" />
-34-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:29:5-65
-34-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:29:22-62
+34-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:29:5-65
+34-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:29:22-62
 35
 36    <!-- 外部ストレージの読み取り許可 -->
 37    <uses-permission
-37-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:32:5-34:40
+37-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:32:5-34:40
 38        android:name="android.permission.READ_EXTERNAL_STORAGE"
-38-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:32:22-77
+38-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:32:22-77
 39        android:maxSdkVersion="34" />
-39-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:33:9-35
+39-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:33:9-35
 40    <!-- 外部ストレージの書き込み許可 -->
 41    <uses-permission
-41-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:36:5-38:40
+41-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:36:5-38:40
 42        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-42-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:36:22-78
+42-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:36:22-78
 43        android:maxSdkVersion="34" />
-43-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:37:9-35
+43-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:37:9-35
 44    <!-- デバイスのステータスを読み取る許可 -->
 45    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-45-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:40:5-75
-45-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:40:22-72
+45-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:40:5-75
+45-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:40:22-72
 46    <!-- システムアラートウィンドウの描画許可 -->
 47    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-47-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:42:5-78
-47-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:42:22-75
+47-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:42:5-78
+47-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:42:22-75
 48    <!-- 外部ストレージへのアクセス許可 -->
 49    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-49-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:44:5-45:46
-49-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:44:22-73
+49-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:44:5-45:46
+49-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:44:22-73
 50    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-50-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:46:5-47:46
-50-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:46:22-72
+50-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:46:5-47:46
+50-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:46:22-72
 51    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
-51-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:48:5-75
-51-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:48:22-72
+51-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:48:5-75
+51-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:48:22-72
 52
 53    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 54    <!-- <uses-sdk android:minSdkVersion="14"/> -->
 55    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-55-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/kyo/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:25:5-79
-55-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/kyo/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:25:22-76
+55-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:25:5-79
+55-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:25:22-76
 56    <uses-permission android:name="android.permission.INTERNET" />
-56-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/kyo/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:26:5-67
-56-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/kyo/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:26:22-64
+56-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:26:5-67
+56-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:26:22-64
 57
 58    <application
-58-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:53:5-82:19
+58-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:53:5-82:19
 59        android:allowBackup="true"
-59-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:54:9-35
+59-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:54:9-35
 60        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-60-->[androidx.core:core:1.8.0] /Users/kyo/.gradle/caches/transforms-4/80e5050817a8b6045f33a3c464fd8f1f/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+60-->[androidx.core:core:1.8.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/80e5050817a8b6045f33a3c464fd8f1f/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
 61        android:debuggable="true"
 62        android:extractNativeLibs="false"
 63        android:icon="@mipmap/ic_konomusi"
-63-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:55:9-43
+63-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:55:9-43
 64        android:label="@string/app_name"
-64-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:56:9-41
+64-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:56:9-41
 65        android:roundIcon="@mipmap/ic_konomusi"
-65-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:57:9-48
+65-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:57:9-48
 66        android:supportsRtl="true"
-66-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:58:9-35
+66-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:58:9-35
 67        android:taskAffinity=""
-67-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:59:9-32
+67-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:59:9-32
 68        android:testOnly="true"
 69        android:theme="@style/Theme.GestureRecognizer" >
-69-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:60:9-55
+69-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:60:9-55
 70        <activity
-70-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:62:9-64:39
+70-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:62:9-64:39
 71            android:name="com.google.mediapipe.examples.gesturerecognizer.RirekiActivity"
-71-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:63:13-43
+71-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:63:13-43
 72            android:exported="false" />
-72-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:64:13-37
+72-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:64:13-37
 73        <activity
-73-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:65:9-67:39
+73-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:65:9-67:39
 74            android:name="com.google.mediapipe.examples.gesturerecognizer.IntroduceActivity"
-74-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:66:13-46
+74-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:66:13-46
 75            android:exported="false" />
-75-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:67:13-37
+75-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:67:13-37
 76        <activity
-76-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:68:9-81:20
+76-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:68:9-81:20
 77            android:name="com.google.mediapipe.examples.gesturerecognizer.MainActivity"
-77-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:69:13-41
+77-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:69:13-41
 78            android:exported="true" >
-78-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:70:13-36
+78-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:70:13-36
 79            <intent-filter>
-79-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:71:13-75:29
+79-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:71:13-75:29
 80                <action android:name="android.intent.action.MAIN" />
-80-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:72:17-69
-80-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:72:25-66
+80-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:72:17-69
+80-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:72:25-66
 81
 82                <category android:name="android.intent.category.LAUNCHER" />
-82-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:74:17-77
-82-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:74:27-74
+82-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:74:17-77
+82-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:74:27-74
 83            </intent-filter>
 84
 85            <!-- Declare notch support -->
 86            <meta-data
-86-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:78:13-80:40
+86-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:78:13-80:40
 87                android:name="android.notch_support"
-87-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:79:17-53
+87-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:79:17-53
 88                android:value="true" />
-88-->/Users/kyo/Desktop/What_is_this_insect_application/app/src/main/AndroidManifest.xml:80:17-37
+88-->/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:80:17-37
 89        </activity>
 90
 91        <uses-library
-91-->[androidx.window:window:1.1.0-alpha03] /Users/kyo/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:23:9-25:40
+91-->[androidx.window:window:1.1.0-alpha03] /Users/hiratsukatomoki/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:23:9-25:40
 92            android:name="androidx.window.extensions"
-92-->[androidx.window:window:1.1.0-alpha03] /Users/kyo/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:24:13-54
+92-->[androidx.window:window:1.1.0-alpha03] /Users/hiratsukatomoki/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:24:13-54
 93            android:required="false" />
-93-->[androidx.window:window:1.1.0-alpha03] /Users/kyo/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:25:13-37
+93-->[androidx.window:window:1.1.0-alpha03] /Users/hiratsukatomoki/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:25:13-37
 94        <uses-library
-94-->[androidx.window:window:1.1.0-alpha03] /Users/kyo/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:26:9-28:40
+94-->[androidx.window:window:1.1.0-alpha03] /Users/hiratsukatomoki/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:26:9-28:40
 95            android:name="androidx.window.sidecar"
-95-->[androidx.window:window:1.1.0-alpha03] /Users/kyo/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:27:13-51
+95-->[androidx.window:window:1.1.0-alpha03] /Users/hiratsukatomoki/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:27:13-51
 96            android:required="false" />
-96-->[androidx.window:window:1.1.0-alpha03] /Users/kyo/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:28:13-37
+96-->[androidx.window:window:1.1.0-alpha03] /Users/hiratsukatomoki/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:28:13-37
 97
 98        <service
-98-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/kyo/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:25:9-34:19
+98-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/hiratsukatomoki/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:25:9-34:19
 99            android:name="androidx.camera.core.impl.MetadataHolderService"
-99-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/kyo/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:26:13-75
+99-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/hiratsukatomoki/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:26:13-75
 100            android:enabled="false"
-100-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/kyo/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:27:13-36
+100-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/hiratsukatomoki/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:27:13-36
 101            android:exported="false" >
-101-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/kyo/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:28:13-37
+101-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/hiratsukatomoki/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:28:13-37
 102            <meta-data
-102-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/kyo/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:31:13-33:89
+102-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/hiratsukatomoki/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:31:13-33:89
 103                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
-103-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/kyo/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:32:17-103
+103-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/hiratsukatomoki/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:32:17-103
 104                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
-104-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/kyo/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:33:17-86
+104-->[androidx.camera:camera-camera2:1.2.0-alpha02] /Users/hiratsukatomoki/.gradle/caches/transforms-4/7edd02062b050ac35902e02143b9d388/transformed/camera-camera2-1.2.0-alpha02/AndroidManifest.xml:33:17-86
 105        </service>
 106
 107        <provider
-107-->[androidx.emoji2:emoji2:1.2.0] /Users/kyo/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+107-->[androidx.emoji2:emoji2:1.2.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
 108            android:name="androidx.startup.InitializationProvider"
-108-->[androidx.emoji2:emoji2:1.2.0] /Users/kyo/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+108-->[androidx.emoji2:emoji2:1.2.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
 109            android:authorities="com.google.mediapipe.examples.gesturerecognizer.androidx-startup"
-109-->[androidx.emoji2:emoji2:1.2.0] /Users/kyo/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+109-->[androidx.emoji2:emoji2:1.2.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
 110            android:exported="false" >
-110-->[androidx.emoji2:emoji2:1.2.0] /Users/kyo/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+110-->[androidx.emoji2:emoji2:1.2.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
 111            <meta-data
-111-->[androidx.emoji2:emoji2:1.2.0] /Users/kyo/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+111-->[androidx.emoji2:emoji2:1.2.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
 112                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-112-->[androidx.emoji2:emoji2:1.2.0] /Users/kyo/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+112-->[androidx.emoji2:emoji2:1.2.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
 113                android:value="androidx.startup" />
-113-->[androidx.emoji2:emoji2:1.2.0] /Users/kyo/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+113-->[androidx.emoji2:emoji2:1.2.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/c46606c8a7d113703b06c8e8f448894e/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
 114            <meta-data
-114-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/kyo/.gradle/caches/transforms-4/e8d9ba3d7185514d4b9405d698042a7b/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+114-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e8d9ba3d7185514d4b9405d698042a7b/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
 115                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-115-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/kyo/.gradle/caches/transforms-4/e8d9ba3d7185514d4b9405d698042a7b/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+115-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e8d9ba3d7185514d4b9405d698042a7b/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
 116                android:value="androidx.startup" />
-116-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/kyo/.gradle/caches/transforms-4/e8d9ba3d7185514d4b9405d698042a7b/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+116-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e8d9ba3d7185514d4b9405d698042a7b/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
 117        </provider>
 118
 119        <service
-119-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/kyo/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:29:9-35:19
+119-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:29:9-35:19
 120            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-120-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/kyo/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:30:13-103
+120-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:30:13-103
 121            android:exported="false" >
-121-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/kyo/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:31:13-37
+121-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:31:13-37
 122            <meta-data
-122-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/kyo/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:32:13-34:39
+122-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:32:13-34:39
 123                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-123-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/kyo/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:33:17-94
+123-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:33:17-94
 124                android:value="cct" />
-124-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/kyo/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:34:17-36
+124-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/e925a96d8e73eb77bd459a2cfd94eeac/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:34:17-36
 125        </service>
 126        <service
-126-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/kyo/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:26:9-30:19
+126-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:26:9-30:19
 127            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-127-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/kyo/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:27:13-117
+127-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:27:13-117
 128            android:exported="false"
-128-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/kyo/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:28:13-37
+128-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:28:13-37
 129            android:permission="android.permission.BIND_JOB_SERVICE" >
-129-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/kyo/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:29:13-69
+129-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:29:13-69
 130        </service>
 131
 132        <receiver
-132-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/kyo/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:32:9-34:40
+132-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:32:9-34:40
 133            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-133-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/kyo/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:33:13-132
+133-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:33:13-132
 134            android:exported="false" />
-134-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/kyo/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:34:13-37
+134-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/dabb1731b9c22a030a0137f626ffe08e/transformed/transport-runtime-3.1.0/AndroidManifest.xml:34:13-37
 135    </application>
 136
 137</manifest>

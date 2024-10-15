@@ -250,15 +250,15 @@ public class ModelUser {
                 return using_model3_3a(context);
             case 5://カメムシ
             case 6://タガメ
+            case 11://ゲンゴロウ
                 return using_model3_3b(context);
             case 7://クワガタムシ
             case 8://カブトムシ
             case 9://コガネムシ
             case 10://ゾウムシ
                 return using_model3_3c(context);
-            case 11://ゲンゴロウ
             case 12://テントウムシ
-                return using_model3_3d(context);
+                return 22;
             case 13://ゴキブリ
             case 14://セミ
                 return using_model3_3e(context);
@@ -445,7 +445,9 @@ public class ModelUser {
         switch (ans) {
             case 0://カメムシ
                 return 9;
-            case 1://タガメ
+            case 1://ゲンゴロウ
+                return 13;
+            case 2://タガメ
                 return 18;
             default://虫を認識できなかった場合
                 return 0;
@@ -498,6 +500,7 @@ public class ModelUser {
                 return 0;
         }
     }
+
 
     private static int using_model3_3d(Context context) {
         try {
