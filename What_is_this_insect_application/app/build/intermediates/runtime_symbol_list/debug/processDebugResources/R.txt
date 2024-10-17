@@ -81,7 +81,6 @@ int animator nav_default_enter_anim 0x7f020023
 int animator nav_default_exit_anim 0x7f020024
 int animator nav_default_pop_enter_anim 0x7f020025
 int animator nav_default_pop_exit_anim 0x7f020026
-int array delegate_spinner_titles 0x7f030000
 int attr DefaultValue 0x7f040000
 int attr ItemPickerCurrentItemValue 0x7f040001
 int attr ItemPickerDecrementBackground 0x7f040002
@@ -608,6 +607,7 @@ int attr framePosition 0x7f04020a
 int attr frame_color 0x7f04020b
 int attr frame_type 0x7f04020c
 int attr frame_width 0x7f04020d
+int attr furiganaSize 0x7f04051a
 int attr gapBetweenBars 0x7f04020e
 int attr gestureInsetBottomIgnored 0x7f04020f
 int attr goIcon 0x7f040210
@@ -1944,7 +1944,6 @@ int color background_floating_material_dark 0x7f060224
 int color background_floating_material_light 0x7f060225
 int color background_material_dark 0x7f060226
 int color background_material_light 0x7f060227
-int color bg_nav_item 0x7f060228
 int color bottom_sheet_background 0x7f060229
 int color bottom_sheet_text_color 0x7f06022a
 int color bright_foreground_disabled_material_dark 0x7f06022b
@@ -2625,13 +2624,6 @@ int dimen abc_text_size_subtitle_material_toolbar 0x7f07004e
 int dimen abc_text_size_title_material 0x7f07004f
 int dimen abc_text_size_title_material_toolbar 0x7f070050
 int dimen appcompat_dialog_background_inset 0x7f070051
-int dimen bottom_sheet_control_btn_size 0x7f070052
-int dimen bottom_sheet_control_text_side_margin 0x7f070053
-int dimen bottom_sheet_default_row_margin 0x7f070054
-int dimen bottom_sheet_padding 0x7f070055
-int dimen bottom_sheet_peek_height 0x7f070056
-int dimen bottom_sheet_spinner_delegate_min_width 0x7f070057
-int dimen bottom_sheet_spinner_model_min_width 0x7f070058
 int dimen bottom_sheet_text_size 0x7f070059
 int dimen button_size 0x7f07005a
 int dimen cardview_compat_inset_shadow 0x7f07005b
@@ -2706,7 +2698,6 @@ int dimen dialog_dont_show_again_checkbox_right_margin 0x7f07009f
 int dimen dialog_dont_show_again_checkbox_top_margin 0x7f0700a0
 int dimen disabled_alpha_material_dark 0x7f0700a1
 int dimen disabled_alpha_material_light 0x7f0700a2
-int dimen fab_margin 0x7f0700a3
 int dimen fastscroll_default_thickness 0x7f0700a4
 int dimen fastscroll_margin 0x7f0700a5
 int dimen fastscroll_minimum_range 0x7f0700a6
@@ -3184,11 +3175,9 @@ int dimen preference_no_icon_padding_start 0x7f07027d
 int dimen preference_seekbar_padding_end 0x7f07027e
 int dimen preference_seekbar_padding_start 0x7f07027f
 int dimen preference_seekbar_value_width 0x7f070280
-int dimen round_button_medium 0x7f070281
 int dimen scale_type_margin_top 0x7f070282
 int dimen scale_type_padding 0x7f070283
 int dimen sliding_pane_detail_pane_width 0x7f070284
-int dimen stroke_small 0x7f070285
 int dimen subtitle_corner_radius 0x7f070286
 int dimen subtitle_outline_width 0x7f070287
 int dimen subtitle_shadow_offset 0x7f070288
@@ -3307,22 +3296,16 @@ int drawable design_snackbar_background 0x7f080086
 int drawable frame 0x7f080087
 int drawable frame_cross 0x7f080088
 int drawable ic_arrow_down_24dp 0x7f080089
-int drawable ic_baseline_add_24 0x7f08008a
-int drawable ic_baseline_photo_camera_24 0x7f08008b
-int drawable ic_baseline_photo_library_24 0x7f08008c
 int drawable ic_clock_black_24dp 0x7f08008d
 int drawable ic_keyboard_black_24dp 0x7f08008e
 int drawable ic_m3_chip_check 0x7f08008f
 int drawable ic_m3_chip_checked_circle 0x7f080090
 int drawable ic_m3_chip_close 0x7f080091
-int drawable ic_minus 0x7f080092
 int drawable ic_mtrl_checked_circle 0x7f080093
 int drawable ic_mtrl_chip_checked_black 0x7f080094
 int drawable ic_mtrl_chip_checked_circle 0x7f080095
 int drawable ic_mtrl_chip_close_circle 0x7f080096
 int drawable ic_notification 0x7f080097
-int drawable ic_plus 0x7f080098
-int drawable icn_chevron_up 0x7f080099
 int drawable m3_appbar_background 0x7f08009a
 int drawable m3_popupmenu_background_overlay 0x7f08009b
 int drawable m3_radiobutton_ripple 0x7f08009c
@@ -3342,7 +3325,6 @@ int drawable material_ic_keyboard_arrow_previous_black_24dp 0x7f0800a9
 int drawable material_ic_keyboard_arrow_right_black_24dp 0x7f0800aa
 int drawable material_ic_menu_arrow_down_black_24dp 0x7f0800ab
 int drawable material_ic_menu_arrow_up_black_24dp 0x7f0800ac
-int drawable media_pipe_banner 0x7f0800ad
 int drawable mtrl_bottomsheet_drag_handle 0x7f0800ae
 int drawable mtrl_checkbox_button 0x7f0800af
 int drawable mtrl_checkbox_button_checked_unchecked 0x7f0800b0
@@ -3418,6 +3400,7 @@ int id SHOW_ALL 0x7f09000a
 int id SHOW_PATH 0x7f09000b
 int id SHOW_PROGRESS 0x7f09000c
 int id SYM 0x7f09000d
+int id Scroll 0x7f090245
 int id TOP_END 0x7f09000e
 int id TOP_START 0x7f09000f
 int id accelerate 0x7f090010
@@ -3930,6 +3913,7 @@ int id textSpacerNoTitle 0x7f09020a
 int id textStart 0x7f09020b
 int id textTop 0x7f09020c
 int id textView 0x7f09020d
+int id textView0 0x7f090246
 int id textView1 0x7f09020e
 int id textViewItem 0x7f09020f
 int id text_input_end_icon 0x7f090210
@@ -3988,7 +3972,6 @@ int id x_right 0x7f090244
 int integer abc_config_activityDefaultDur 0x7f0a0000
 int integer abc_config_activityShortDur 0x7f0a0001
 int integer app_bar_elevation_anim_duration 0x7f0a0002
-int integer bottom_sheet_control_text_min_ems 0x7f0a0003
 int integer bottom_sheet_slide_duration 0x7f0a0004
 int integer cancel_button_image_alpha 0x7f0a0005
 int integer card_flip_time_full 0x7f0a0006
@@ -4249,8 +4232,7 @@ int mipmap ic_frame_cross_quarter 0x7f0f0012
 int mipmap ic_frame_frame 0x7f0f0013
 int mipmap ic_increment 0x7f0f0014
 int mipmap ic_konomusi 0x7f0f0015
-int mipmap ic_launcher 0x7f0f0016
-int mipmap ic_launcher_round 0x7f0f0017
+int mipmap ic_konomusi_round 0x7f0f0019
 int mipmap ic_transparent 0x7f0f0018
 int plurals mtrl_badge_content_description 0x7f100000
 int raw camera_click 0x7f110000
@@ -4281,13 +4263,6 @@ int string abc_searchview_description_voice 0x7f120017
 int string abc_shareactionprovider_share_with 0x7f120018
 int string abc_shareactionprovider_share_with_application 0x7f120019
 int string abc_toolbar_collapse_description 0x7f12001a
-int string alt_bottom_sheet_chevron 0x7f12001b
-int string alt_bottom_sheet_max_results_button_minus 0x7f12001c
-int string alt_bottom_sheet_max_results_button_plus 0x7f12001d
-int string alt_bottom_sheet_thread_button_minus 0x7f12001e
-int string alt_bottom_sheet_thread_button_plus 0x7f12001f
-int string alt_bottom_sheet_threshold_button_minus 0x7f120020
-int string alt_bottom_sheet_threshold_button_plus 0x7f120021
 int string androidx_startup 0x7f120022
 int string app_name 0x7f120023
 int string appbar_scrolling_view_behavior 0x7f120024
@@ -4297,10 +4272,6 @@ int string bottomsheet_action_expand 0x7f120027
 int string bottomsheet_action_expand_halfway 0x7f120028
 int string bottomsheet_drag_handle_clicked 0x7f120029
 int string bottomsheet_drag_handle_content_description 0x7f12002a
-int string bt_finish 0x7f12002b
-int string bt_next 0x7f12002c
-int string bt_previous 0x7f12002d
-int string bt_rireki 0x7f12002e
 int string camera 0x7f12002f
 int string character_counter_content_description 0x7f120030
 int string character_counter_overflowed_content_description 0x7f120031
@@ -4324,13 +4295,6 @@ int string hide_bottom_view_on_scroll_behavior 0x7f120042
 int string icon_content_description 0x7f120043
 int string item_view_role_description 0x7f120044
 int string itemname 0x7f120045
-int string label_delegate 0x7f120046
-int string label_fps 0x7f120047
-int string label_hand_detection_confidence_threshold 0x7f120048
-int string label_hand_presence_confidence_threshold 0x7f120049
-int string label_hand_tracking_confidence_threshold 0x7f12004a
-int string label_inference_time 0x7f12004b
-int string link_kontyu 0x7f12004c
 int string m3_sys_motion_easing_emphasized 0x7f12004d
 int string m3_sys_motion_easing_emphasized_accelerate 0x7f12004e
 int string m3_sys_motion_easing_emphasized_decelerate 0x7f12004f
@@ -4362,9 +4326,6 @@ int string material_timepicker_minute 0x7f120068
 int string material_timepicker_pm 0x7f120069
 int string material_timepicker_select_time 0x7f12006a
 int string material_timepicker_text_input_mode_description 0x7f12006b
-int string media_pipe 0x7f12006c
-int string menu_camera 0x7f12006d
-int string menu_gallery 0x7f12006e
 int string mtrl_badge_numberless_content_description 0x7f12006f
 int string mtrl_checkbox_button_icon_path_checked 0x7f120070
 int string mtrl_checkbox_button_icon_path_group_name 0x7f120071
@@ -4466,11 +4427,6 @@ int string service_stop 0x7f1200d0
 int string status_bar_notification_info_overflow 0x7f1200d1
 int string summary_collapsed_preference_list 0x7f1200d2
 int string togglebutton 0x7f1200d3
-int string tv_gallery_placeholder 0x7f1200d4
-int string tx_jyesutya 0x7f1200d5
-int string tx_konntyu 0x7f1200d6
-int string tx_kontyu1 0x7f1200d7
-int string tx_rireki 0x7f1200d8
 int string v7_preference_off 0x7f1200d9
 int string v7_preference_on 0x7f1200da
 int style AlertDialog_AppCompat 0x7f130000
@@ -6654,6 +6610,16 @@ int styleable FrameView_scale_scale 5
 int styleable FrameView_scale_type 6
 int styleable FrameView_scale_width 7
 int styleable FrameView_tick_color 8
+int[] styleable FuriganaView { 0x010100f7, 0x010100f9, 0x0101014f, 0x01010153, 0x01010217, 0x010103b1, 0x010103b5, 0x010103b6, 0x7f04051a }
+int styleable FuriganaView_android_layout_marginLeft 0
+int styleable FuriganaView_android_layout_marginRight 1
+int styleable FuriganaView_android_text 2
+int styleable FuriganaView_android_maxLines 3
+int styleable FuriganaView_android_lineSpacingExtra 4
+int styleable FuriganaView_android_textAlignment 5
+int styleable FuriganaView_android_layout_marginStart 6
+int styleable FuriganaView_android_layout_marginEnd 7
+int styleable FuriganaView_furiganaSize 8
 int[] styleable GradientColor { 0x0101019d, 0x0101019e, 0x010101a1, 0x010101a2, 0x010101a3, 0x010101a4, 0x01010201, 0x0101020b, 0x01010510, 0x01010511, 0x01010512, 0x01010513 }
 int styleable GradientColor_android_startColor 0
 int styleable GradientColor_android_endColor 1

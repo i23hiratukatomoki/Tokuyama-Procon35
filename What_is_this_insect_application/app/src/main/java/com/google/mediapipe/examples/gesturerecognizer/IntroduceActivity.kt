@@ -49,16 +49,12 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         execService = Executors.newSingleThreadExecutor()
         activityIntroduceBinding.textView.text = "このむしのしゅるいは" + musi+"です。"
 
-        val text0 = findViewById<TextView>(com.google.mediapipe.examples.gesturerecognizer.R.id.textView1)
+        val text0 = findViewById<TextView>(com.google.mediapipe.examples.gesturerecognizer.R.id.textView0)
         text0.text = "さんこうにしたWebサイト:wikipedia\n\nURL:$Url"
         Linkify.addLinks(text0, Linkify.ALL)
         val n_furigana = findViewById<FuriganaView>(com.google.mediapipe.examples.gesturerecognizer.R.id.furiganaView)
-        val tp = TextPaint()
-        tp.setTextSize(36f)
-        val mark_s = 11 // highlight 厚い in text (characters 11-13)
-        val mark_e = 13
 
-        n_furigana.text_set(tp, "お{待;ま}ちください。", mark_s, mark_e)
+        n_furigana.setText("お{待;ま}ちください。")
         execService?.execute(Runnable {
             val hurigana: Hurigana
             try {
@@ -72,7 +68,7 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
             }else{
                 text1 = "インターネットに{接続;せつぞく}してください"
             }
-            n_furigana.post { n_furigana.text_set(tp, text1, mark_s, mark_e) }
+            n_furigana.post { n_furigana.setText(text1) }
         })
         android.os.Handler().postDelayed({
             if(text2 == null){

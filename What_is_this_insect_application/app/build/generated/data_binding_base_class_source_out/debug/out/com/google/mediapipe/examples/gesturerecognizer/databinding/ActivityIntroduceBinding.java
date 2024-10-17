@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +24,9 @@ public final class ActivityIntroduceBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ScrollView Scroll;
+
+  @NonNull
   public final FuriganaView furiganaView;
 
   @NonNull
@@ -32,19 +36,20 @@ public final class ActivityIntroduceBinding implements ViewBinding {
   public final TextView textView;
 
   @NonNull
-  public final TextView textView1;
+  public final TextView textView0;
 
   @NonNull
   public final Toolbar toolbar;
 
-  private ActivityIntroduceBinding(@NonNull ConstraintLayout rootView,
+  private ActivityIntroduceBinding(@NonNull ConstraintLayout rootView, @NonNull ScrollView Scroll,
       @NonNull FuriganaView furiganaView, @NonNull ImageView musiimage, @NonNull TextView textView,
-      @NonNull TextView textView1, @NonNull Toolbar toolbar) {
+      @NonNull TextView textView0, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
+    this.Scroll = Scroll;
     this.furiganaView = furiganaView;
     this.musiimage = musiimage;
     this.textView = textView;
-    this.textView1 = textView1;
+    this.textView0 = textView0;
     this.toolbar = toolbar;
   }
 
@@ -75,6 +80,12 @@ public final class ActivityIntroduceBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.Scroll;
+      ScrollView Scroll = ViewBindings.findChildViewById(rootView, id);
+      if (Scroll == null) {
+        break missingId;
+      }
+
       id = R.id.furiganaView;
       FuriganaView furiganaView = ViewBindings.findChildViewById(rootView, id);
       if (furiganaView == null) {
@@ -93,9 +104,9 @@ public final class ActivityIntroduceBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView1;
-      TextView textView1 = ViewBindings.findChildViewById(rootView, id);
-      if (textView1 == null) {
+      id = R.id.textView0;
+      TextView textView0 = ViewBindings.findChildViewById(rootView, id);
+      if (textView0 == null) {
         break missingId;
       }
 
@@ -105,8 +116,8 @@ public final class ActivityIntroduceBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityIntroduceBinding((ConstraintLayout) rootView, furiganaView, musiimage,
-          textView, textView1, toolbar);
+      return new ActivityIntroduceBinding((ConstraintLayout) rootView, Scroll, furiganaView,
+          musiimage, textView, textView0, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

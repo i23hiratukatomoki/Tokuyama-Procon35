@@ -10,7 +10,7 @@
         android:id="@+id/musiimage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@id/textView"
+        app:layout_constraintBottom_toBottomOf="@id/Scroll"
         android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
@@ -39,56 +39,53 @@
 
     <!-- Other UI components for IntroduceActivity -->
     <!-- For example, TextView for displaying the passed item name -->
-    <TextView
-        android:id="@+id/textView"
-        android:text="@string/musisyoukai"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:breakStrategy="simple"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_default="percent"
-        app:layout_constraintHeight_percent=".1000"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
+    <ScrollView
+        android:id="@+id/Scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/musiimage"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".8536" />
-    <com.google.mediapipe.examples.gesturerecognizer.FuriganaView
-        android:id = "@+id/furiganaView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
-        app:layout_constraintHeight_percent=".1424"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintHeight_percent=".400"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".8536"
-        android:textAlignment="center"
-        android:breakStrategy="simple"/>
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_default="percent"
-        app:layout_constraintHeight_percent=".1000"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/furiganaView"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent=".8536"
-        android:textAlignment="center"
-        android:breakStrategy="simple"/>
+        app:layout_constraintWidth_percent=".8536">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:breakStrategy="simple"
+                android:text="@string/musisyoukai"
+                android:textSize="20dp"
+                app:layout_constraintHeight_percent=".1000"
+                app:layout_constraintWidth_percent=".8536" />
+
+            <TextView
+                android:id="@+id/textView0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="20sp" />
+
+            <com.google.mediapipe.examples.gesturerecognizer.FuriganaView
+                android:id="@+id/furiganaView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintHeight_percent=".1424"
+                app:layout_constraintWidth_percent=".8536" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

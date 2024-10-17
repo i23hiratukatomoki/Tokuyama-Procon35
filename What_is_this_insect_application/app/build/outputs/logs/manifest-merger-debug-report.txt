@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:17:1-84:12
-INJECTED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:17:1-84:12
-INJECTED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:17:1-84:12
-INJECTED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:17:1-84:12
+ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:17:1-86:12
+INJECTED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:17:1-86:12
+INJECTED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:17:1-86:12
+INJECTED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:17:1-86:12
 MERGED from [androidx.databinding:viewbinding:8.3.1] /Users/hiratsukatomoki/.gradle/caches/transforms-4/cd7f74b164198b5c7bf4ccbb5654ea10/transformed/viewbinding-8.3.1/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-fragment-ktx:2.5.3] /Users/hiratsukatomoki/.gradle/caches/transforms-4/9df92c2c62723723a593e06af5be1d7b/transformed/navigation-fragment-ktx-2.5.3/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-fragment:2.5.3] /Users/hiratsukatomoki/.gradle/caches/transforms-4/f753266e68d25e0f099b2c5ca88912c1/transformed/navigation-fragment-2.5.3/AndroidManifest.xml:17:1-24:12
@@ -156,8 +156,8 @@ ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app
 	android:name
 		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:48:22-72
 application
-ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:53:5-82:19
-INJECTED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:53:5-82:19
+ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:53:5-84:19
+INJECTED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:53:5-84:19
 MERGED from [androidx.window:window:1.1.0-alpha03] /Users/hiratsukatomoki/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:22:5-29:19
 MERGED from [androidx.window:window:1.1.0-alpha03] /Users/hiratsukatomoki/.gradle/caches/transforms-4/08029c07772e3c1d0580b08efb960799/transformed/window-1.1.0-alpha03/AndroidManifest.xml:22:5-29:19
 MERGED from [com.google.android.material:material:1.7.0] /Users/hiratsukatomoki/.gradle/caches/transforms-4/23e7fbf14efaf8f7b5ce8853516b1a5a/transformed/material-1.7.0/AndroidManifest.xml:24:5-20
@@ -203,7 +203,7 @@ MERGED from [com.google.android.odml:image:1.0.0-beta1] /Users/hiratsukatomoki/.
 	tools:ignore
 		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:61:9-35
 	android:roundIcon
-		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:57:9-48
+		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:57:9-54
 	android:icon
 		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:55:9-43
 	android:allowBackup
@@ -225,27 +225,31 @@ ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app
 	android:name
 		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:66:13-46
 activity#com.google.mediapipe.examples.gesturerecognizer.MainActivity
-ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:68:9-81:20
+ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:68:9-83:20
+	android:screenOrientation
+		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:70:13-50
 	android:exported
-		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:70:13-36
+		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:71:13-36
+	tools:ignore
+		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:72:13-42
 	android:name
 		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:69:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:71:13-75:29
+ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:73:13-77:29
 action#android.intent.action.MAIN
-ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:72:17-69
+ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:74:17-69
 	android:name
-		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:72:25-66
+		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:74:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:74:17-77
+ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:76:17-77
 	android:name
-		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:74:27-74
+		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:76:27-74
 meta-data#android.notch_support
-ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:78:13-80:40
+ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:80:13-82:40
 	android:value
-		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:80:17-37
+		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:82:17-37
 	android:name
-		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:79:17-53
+		ADDED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml:81:17-53
 uses-sdk
 INJECTED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/AndroidManifest.xml

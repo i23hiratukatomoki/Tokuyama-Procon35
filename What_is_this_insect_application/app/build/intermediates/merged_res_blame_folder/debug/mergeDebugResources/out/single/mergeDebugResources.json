@@ -1,41 +1,5 @@
 [
     {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/mipmap-mdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/color_bg_nav_item.xml.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/color/bg_nav_item.xml"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/drawable_media_pipe_banner.xml.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/drawable/media_pipe_banner.xml"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/layout_activity_main.xml.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_main.xml"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/menu_menu_introduce.xml.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/menu/menu_introduce.xml"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/mipmap-xxxhdpi/ic_launcher_round.png"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/drawable_ic_baseline_photo_library_24.xml.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/drawable/ic_baseline_photo_library_24.xml"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/mipmap-xxhdpi/ic_launcher_round.png"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/drawable_ic_minus.xml.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/drawable/ic_minus.xml"
-    },
-    {
         "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/layout_item_gesture_recognizer_result.xml.flat",
         "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/item_gesture_recognizer_result.xml"
     },
@@ -56,51 +20,19 @@
         "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/mipmap-hdpi/ic_konomusi.jpg"
     },
     {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/mipmap-mdpi/ic_launcher_round.png"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/drawable_icn_chevron_up.png.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/drawable/icn_chevron_up.png"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/mipmap-xxxhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/mipmap-hdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/drawable_ic_plus.xml.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/drawable/ic_plus.xml"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/mipmap-hdpi/ic_launcher_round.png"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/drawable_ic_baseline_photo_camera_24.xml.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/drawable/ic_baseline_photo_camera_24.xml"
-    },
-    {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/mipmap-xxhdpi/ic_launcher.png"
-    },
-    {
         "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/layout_activity_introduce.xml.flat",
         "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_introduce.xml"
     },
     {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/drawable_ic_baseline_add_24.xml.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/drawable/ic_baseline_add_24.xml"
+        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/mipmap-hdpi_ic_konomusi_round.png.flat",
+        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/mipmap-hdpi/ic_konomusi_round.png"
     },
     {
-        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/mipmap-xhdpi/ic_launcher_round.png"
+        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/layout_activity_main.xml.flat",
+        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-debug-51:/menu_menu_introduce.xml.flat",
+        "source": "/Users/hiratsukatomoki/.gradle/daemon/8.7/com.google.mediapipe.examples.gesturerecognizer.app-main-53:/menu/menu_introduce.xml"
     }
 ]

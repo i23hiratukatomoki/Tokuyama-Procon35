@@ -82,7 +82,6 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
-array delegate_spinner_titles
 attr DefaultValue
 attr ItemPickerCurrentItemValue
 attr ItemPickerDecrementBackground
@@ -609,6 +608,7 @@ attr framePosition
 attr frame_color
 attr frame_type
 attr frame_width
+attr furiganaSize
 attr gapBetweenBars
 attr gestureInsetBottomIgnored
 attr goIcon
@@ -1945,7 +1945,6 @@ color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
-color bg_nav_item
 color bottom_sheet_background
 color bottom_sheet_text_color
 color bright_foreground_disabled_material_dark
@@ -2626,13 +2625,6 @@ dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen appcompat_dialog_background_inset
-dimen bottom_sheet_control_btn_size
-dimen bottom_sheet_control_text_side_margin
-dimen bottom_sheet_default_row_margin
-dimen bottom_sheet_padding
-dimen bottom_sheet_peek_height
-dimen bottom_sheet_spinner_delegate_min_width
-dimen bottom_sheet_spinner_model_min_width
 dimen bottom_sheet_text_size
 dimen button_size
 dimen cardview_compat_inset_shadow
@@ -2707,7 +2699,6 @@ dimen dialog_dont_show_again_checkbox_right_margin
 dimen dialog_dont_show_again_checkbox_top_margin
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
-dimen fab_margin
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
@@ -3185,11 +3176,9 @@ dimen preference_no_icon_padding_start
 dimen preference_seekbar_padding_end
 dimen preference_seekbar_padding_start
 dimen preference_seekbar_value_width
-dimen round_button_medium
 dimen scale_type_margin_top
 dimen scale_type_padding
 dimen sliding_pane_detail_pane_width
-dimen stroke_small
 dimen subtitle_corner_radius
 dimen subtitle_outline_width
 dimen subtitle_shadow_offset
@@ -3308,22 +3297,16 @@ drawable design_snackbar_background
 drawable frame
 drawable frame_cross
 drawable ic_arrow_down_24dp
-drawable ic_baseline_add_24
-drawable ic_baseline_photo_camera_24
-drawable ic_baseline_photo_library_24
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
-drawable ic_minus
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_notification
-drawable ic_plus
-drawable icn_chevron_up
 drawable m3_appbar_background
 drawable m3_popupmenu_background_overlay
 drawable m3_radiobutton_ripple
@@ -3343,7 +3326,6 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
-drawable media_pipe_banner
 drawable mtrl_bottomsheet_drag_handle
 drawable mtrl_checkbox_button
 drawable mtrl_checkbox_button_checked_unchecked
@@ -3419,6 +3401,7 @@ id SHOW_ALL
 id SHOW_PATH
 id SHOW_PROGRESS
 id SYM
+id Scroll
 id TOP_END
 id TOP_START
 id accelerate
@@ -3931,6 +3914,7 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textView0
 id textView1
 id textViewItem
 id text_input_end_icon
@@ -3989,7 +3973,6 @@ id x_right
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
-integer bottom_sheet_control_text_min_ems
 integer bottom_sheet_slide_duration
 integer cancel_button_image_alpha
 integer card_flip_time_full
@@ -4250,8 +4233,7 @@ mipmap ic_frame_cross_quarter
 mipmap ic_frame_frame
 mipmap ic_increment
 mipmap ic_konomusi
-mipmap ic_launcher
-mipmap ic_launcher_round
+mipmap ic_konomusi_round
 mipmap ic_transparent
 plurals mtrl_badge_content_description
 raw camera_click
@@ -4282,13 +4264,6 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
-string alt_bottom_sheet_chevron
-string alt_bottom_sheet_max_results_button_minus
-string alt_bottom_sheet_max_results_button_plus
-string alt_bottom_sheet_thread_button_minus
-string alt_bottom_sheet_thread_button_plus
-string alt_bottom_sheet_threshold_button_minus
-string alt_bottom_sheet_threshold_button_plus
 string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
@@ -4298,10 +4273,6 @@ string bottomsheet_action_expand
 string bottomsheet_action_expand_halfway
 string bottomsheet_drag_handle_clicked
 string bottomsheet_drag_handle_content_description
-string bt_finish
-string bt_next
-string bt_previous
-string bt_rireki
 string camera
 string character_counter_content_description
 string character_counter_overflowed_content_description
@@ -4325,13 +4296,6 @@ string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
 string itemname
-string label_delegate
-string label_fps
-string label_hand_detection_confidence_threshold
-string label_hand_presence_confidence_threshold
-string label_hand_tracking_confidence_threshold
-string label_inference_time
-string link_kontyu
 string m3_sys_motion_easing_emphasized
 string m3_sys_motion_easing_emphasized_accelerate
 string m3_sys_motion_easing_emphasized_decelerate
@@ -4363,9 +4327,6 @@ string material_timepicker_minute
 string material_timepicker_pm
 string material_timepicker_select_time
 string material_timepicker_text_input_mode_description
-string media_pipe
-string menu_camera
-string menu_gallery
 string mtrl_badge_numberless_content_description
 string mtrl_checkbox_button_icon_path_checked
 string mtrl_checkbox_button_icon_path_group_name
@@ -4467,11 +4428,6 @@ string service_stop
 string status_bar_notification_info_overflow
 string summary_collapsed_preference_list
 string togglebutton
-string tv_gallery_placeholder
-string tx_jyesutya
-string tx_konntyu
-string tx_kontyu1
-string tx_rireki
 string v7_preference_off
 string v7_preference_on
 style AlertDialog_AppCompat
@@ -5636,6 +5592,7 @@ styleable Fragment android_name android_id android_tag
 styleable FragmentContainerView android_name android_tag
 styleable FragmentNavigator android_name
 styleable FrameView frame_color frame_type frame_width scale_color scale_rotation scale_scale scale_type scale_width tick_color
+styleable FuriganaView android_layout_marginLeft android_layout_marginRight android_text android_maxLines android_lineSpacingExtra android_textAlignment android_layout_marginStart android_layout_marginEnd furiganaSize
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
 styleable IAspectRatioView aspect_ratio
