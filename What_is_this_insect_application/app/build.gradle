@@ -115,5 +115,5 @@ dependencies {
     // jsoup
     implementation files('libs/jsoup-1.18.1.jar')
     // lucene-gosen
-    implementation files('libs/lucene-gosen-2.1-dev-ipadic.jar')
+    implementation files('libs/lucene-gosen-4.10.0-naist-chasen.jar')
 }
