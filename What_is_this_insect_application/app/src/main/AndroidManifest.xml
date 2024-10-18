@@ -61,9 +61,15 @@
         tools:ignore="AllowBackup">
         <activity
             android:name=".RirekiActivity"
+            android:screenOrientation="portrait"
             android:exported="false"/>
         <activity
             android:name=".IntroduceActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+        <activity
+            android:name=".HelpActivity"
+            android:screenOrientation="portrait"
             android:exported="false"/>
         <activity
             android:name=".MainActivity"

@@ -184,11 +184,17 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
                 startActivity(intent)
                 true
             }
+            com.google.mediapipe.examples.gesturerecognizer.R.id.action_go_to_help -> {
+                tts?.stop()
+                tts?.shutdown()
+                // HelpActivityに遷移
+                val intent = Intent(this, HelpActivity::class.java)
+                intent.putExtra("layoutResId", com.google.mediapipe.examples.gesturerecognizer.R.layout.activity_help_screen3)  // レイアウトリソースIDを渡す
+                startActivity(intent)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-    override fun onBackPressed() {
-        finish()
     }
 
     //Activityがストップした時にバックグラウンド再生をさせないようにする

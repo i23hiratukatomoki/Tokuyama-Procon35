@@ -6,4 +6,9 @@
         android:title="@string/gotoMain"
         android:icon="@android:drawable/ic_menu_send"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_go_to_help"
+        android:title="@string/gotoHelpAct"
+        android:icon="@android:drawable/ic_menu_help"
+        app:showAsAction="ifRoom" />
 </menu>

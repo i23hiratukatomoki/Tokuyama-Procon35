@@ -7,6 +7,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Rect
 import android.hardware.usb.UsbDevice
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -55,7 +56,7 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
     private var mPicture: Bitmap? = null //撮影した画像が入るBitmap
 
     private lateinit var backgroundExecutor: ExecutorService //ジェスチャー認識のためのスレッド
-    private lateinit var gestureRecognizerHelper: GestureRecognizerHelper
+    private lateinit var gestureRecognizerHelper: GestureRecognizerHelper// mediapipeを使用できる
     private lateinit var overlay: OverlayView //実際のハンドジェスチャー認識による手のマークアップはこのオーバーレイ上で行っている
     private var isCapturing = false
 
@@ -64,6 +65,12 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
 
     // bitmapを取得
     private lateinit var beforecutbitmap : Bitmap
+
+    private lateinit var sound1: MediaPlayer
+    private lateinit var sound2: MediaPlayer
+
+    private var isSound1 = false
+    private var isSound2 = false
 
     private val name_ja = arrayOf(
         "-1",
@@ -106,6 +113,13 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         }
         setContentView(R.layout.activity_main)
 
+        // 効果音ファイルをロード
+        sound1 = MediaPlayer.create(this, R.raw.hit)
+        sound2 = MediaPlayer.create(this, R.raw.over)
+
+        // 効果音を再生する
+        // playSoundEffect()
+
         mCameraButton = findViewById<View>(R.id.camera_button) as ToggleButton
         mCameraButton!!.setOnCheckedChangeListener(mOnCheckedChangeListener)
 
@@ -139,15 +153,20 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         // オーバーレイの初期化
         overlay = findViewById(R.id.overlay)
 
-        val buttonNavigate = findViewById<Button>(R.id.buttonNavigate)
-
+        val rirekiNavigate = findViewById<Button>(R.id.rirekiNavigate)
         // ボタンがクリックされた時にRirekiActivityに遷移
-        buttonNavigate.setOnClickListener {
+        rirekiNavigate.setOnClickListener {
             val intent = Intent(this, RirekiActivity::class.java)
             startActivity(intent)
         }
+        val helpNavigate = findViewById<Button>(R.id.helpNavigate)
+        // ボタンがクリックされた時にHelpActivityに遷移
+        helpNavigate.setOnClickListener {
+            val intent = Intent(this, HelpActivity::class.java)
+            intent.putExtra("layoutResId", R.layout.activity_help_screen1)  // レイアウトリソースIDを渡す
+            startActivity(intent)
+        }
     }
-
     override fun onStart() {
         super.onStart()
         if (DEBUG) {
@@ -216,6 +235,9 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
             Long.MAX_VALUE, TimeUnit.NANOSECONDS
         )
         super.onDestroy()
+        // メディアプレーヤーのリソースを解放
+        sound1.release()
+        sound2.release()
     }
 
     private val mOnCheckedChangeListener =
@@ -268,8 +290,8 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
                 } else {
                     Log.e(TAG, "画像キャプチャに失敗しました")
                 }
-                //200ミリ秒ごとに認識を行うように設定している
-                delay(200)
+                //400ミリ秒ごとに認識を行うように設定している
+                delay(400)
             }
         }
     }
@@ -392,6 +414,29 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         }
         // handgestureを実行
         hanges.handgesture()
+        // ハンドサインをしているか
+        val open_palm = results.gestures().any { gesture ->
+            gesture.get(0).categoryName() == "Open_Palm"
+        }
+        val closed_fist = results.gestures().any { gesture ->
+            gesture.get(0).categoryName() == "Closed_Fist"
+        }
+        if(open_palm){
+            if(!isSound1) {
+                playSoundEffect1()
+                isSound1 = true
+            }
+        }else{
+            isSound1 = false
+        }
+        if(closed_fist){
+            if(!isSound2) {
+                playSoundEffect2()
+                isSound2 = true
+            }
+        }else{
+            isSound2 = false
+        }
         // 撮影可能であるか
         if (hanges.currentIsTake[1]){
             // bitmapを指定した範囲でトリミング
@@ -424,6 +469,16 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         }
         Log.v(TAG, "Results: ${resultBundle.results}")
     }
+    private fun playSoundEffect1() {
+        if (::sound1.isInitialized) {
+            sound1.start()
+        }
+    }
+    private fun playSoundEffect2() {
+        if (::sound2.isInitialized) {
+            sound2.start()
+        }
+    }
     // putExtraでuriファイル名の送信と画面遷移
     private fun navigateToIntroduceActivity(uri_name: String) {
         val intent = Intent(this, IntroduceActivity::class.java)
@@ -447,7 +502,7 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         val MAXSIZE_X = bitmap.width
         val MAXSIZE_Y = bitmap.height
         val MINSIZE = 0
-        val EXPANTION = intArrayOf(200, 50) // TODO
+        val EXPANTION = intArrayOf(200, 50)
         val l = max((picrec[0]*MAXSIZE_X).toInt()-EXPANTION[0],MINSIZE)
         val t = max((picrec[1]*MAXSIZE_Y).toInt()-EXPANTION[1],MINSIZE)
         val r = min((picrec[2]*MAXSIZE_X).toInt()+EXPANTION[0],MAXSIZE_X)

@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.SearchView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -36,13 +38,12 @@ class RirekiActivity : AppCompatActivity() {
 
         // 戻るボタンの動作を設定
         toolbar.setNavigationOnClickListener {
-            // MainActivityに戻る
             finish() // 現在のアクティビティを終了し、MainActivityに戻る
         }
-        Log.d("filter","1")
+
         recyclerView = findViewById(R.id.recyclerView)
         searchView = findViewById(R.id.searchView)
-        Log.d("filter","2")
+
         // RecyclerViewの設定
         adapter = RirekiAdapter(filteredItemList, onClick = { itemName ->
             val intent = Intent(this, IntroduceActivity::class.java)
@@ -53,10 +54,10 @@ class RirekiActivity : AppCompatActivity() {
         })
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
-        Log.d("filter","3")
+
         // データをロードしてRecyclerViewを初期化
         loadItems()
-        Log.d("filter","4")
+
         // MainActivityから新しいアイテムを取得して追加
         // SharedPreferencesから新しいアイテムを取得して追加
         val newItem = loadNewItemFromSharedPreferences()
@@ -64,7 +65,7 @@ class RirekiActivity : AppCompatActivity() {
             addItem(newItem)
             clearNewItemFromSharedPreferences()  // 使ったら消す
         }
-        Log.d("filter","5")
+
         // SearchViewのリスナーを設定
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -76,6 +77,30 @@ class RirekiActivity : AppCompatActivity() {
                 return true
             }
         })
+    }
+    // オプションメニューを作成
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_introduce, menu) // メニューを読み込む
+        return true
+    }
+    // メニューアイテムが選択されたときの処理
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_go_to_main -> {
+                // MainActivityに遷移
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.action_go_to_help -> {
+                // HelpActivityに遷移
+                val intent = Intent(this, HelpActivity::class.java)
+                intent.putExtra("layoutResId", R.layout.activity_help_screen2)  // レイアウトリソースIDを渡す
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
     // SharedPreferencesから新しいアイテムを読み込む
     private fun loadNewItemFromSharedPreferences(): String? {

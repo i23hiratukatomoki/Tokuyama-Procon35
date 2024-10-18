@@ -66,20 +66,23 @@
                 android:layout_height="wrap_content"
                 android:text="@string/togglebutton" />
 
-            <!-- 追加ボタン TODO 整形-->
+            <!-- 追加ボタン-->
             <Button
-                android:id="@+id/buttonNavigate"
+                android:id="@+id/rirekiNavigate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/gotoRireki"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
+
+            <Button
+                android:id="@+id/helpNavigate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gotoHelp"
+                android:translationX="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
         </LinearLayout>
-
-
-
-
-
     </RelativeLayout>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
