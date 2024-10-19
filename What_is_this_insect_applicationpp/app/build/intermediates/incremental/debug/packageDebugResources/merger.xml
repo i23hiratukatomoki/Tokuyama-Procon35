@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res"><file name="ic_konomusi_round" path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/mipmap-hdpi/ic_konomusi_round.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_konomusi" path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/mipmap-hdpi/ic_konomusi.jpg" qualifiers="hdpi-v4" type="mipmap"/><file name="item_rireki" path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/layout/item_rireki.xml" qualifiers="" type="layout"/><file name="activity_introduce" path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/layout/activity_introduce.xml" qualifiers="" type="layout"/><file name="item_gesture_recognizer_result" path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/layout/item_gesture_recognizer_result.xml" qualifiers="" type="layout"/><file name="activity_main" path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/layout/activity_main.xml" qualifiers="" type="layout"/><file name="activity_rireki" path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/layout/activity_rireki.xml" qualifiers="" type="layout"/><file path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/values/colors.xml" qualifiers=""><color name="mp_color_primary">#007F8B</color><color name="mp_color_primary_variant">#12B5CB</color><color name="mp_color_primary_dark">#00676D</color><color name="mp_color_secondary">#FBBC04</color><color name="mp_color_secondary_variant">#F9AB00</color><color name="mp_color_error">#B00020</color><color name="toolbar_background">#E0E0E0</color><color name="ic_launcher_background">#FFFFFF</color><color name="bottom_sheet_background">#EEEEEE</color><color name="bottom_sheet_text_color">@android:color/black</color><color name="icActive">#FFFFFFFF</color><color name="icFocused">#DDFFFFFF</color><color name="icPressed">#AAFFFFFF</color><color name="colorPrimary">#6200EE</color><color name="colorPrimaryDark">#3700B3</color><color name="colorAccent">#03DAC5</color></file><file path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/values/dimens.xml" qualifiers=""><dimen name="bottom_sheet_text_size">18sp</dimen></file><file path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/values/themes.xml" qualifiers=""><style name="Theme.GestureRecognizer" parent="Theme.MaterialComponents.Light.NoActionBar">
+        
+        <item name="colorPrimary">@color/mp_color_primary</item>
+        <item name="colorPrimaryVariant">@color/mp_color_primary_variant</item>
+        <item name="colorPrimaryDark">@color/mp_color_primary_dark</item>
+        
+        <item name="colorSecondary">@color/mp_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/mp_color_secondary_variant</item>
+        <item name="colorError">@color/mp_color_error</item>
+        
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        
+    </style></file><file path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/values/styles.xml" qualifiers=""><style name="BottomSheetSpinnerItemStyle" parent="Widget.AppCompat.Light.DropDownItem.Spinner">
+        <item name="android:textSize">@dimen/bottom_sheet_text_size</item>
+    </style><style name="AppThemeProgressStyle">
+        <item name="colorAccent">@color/mp_color_primary_variant</item>
+    </style><style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style></file><file path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/values/strings.xml" qualifiers=""><string name="itemname" translatable="false">Item Name</string><string name="musisyoukai" translatable="false">この昆虫はカブトムシです</string><string name="gotoRireki" translatable="false">りれき</string><string name="gotoMain" translatable="false">Go to MainActivity</string><string name="app_name" translatable="false">この虫な~んだ</string><string name="togglebutton" translatable="false">Toggle</string></file><file path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/values/attrs.xml" qualifiers=""><declare-styleable name="FuriganaView">
+        <attr name="android:text"/>
+        <attr name="android:maxLines"/>
+        <attr name="android:textAlignment"/>
+        <attr name="android:lineSpacingExtra"/>
+        <attr name="android:layout_marginEnd"/>
+        <attr name="android:layout_marginLeft"/>
+        <attr name="android:layout_marginRight"/>
+        <attr name="android:layout_marginStart"/>
+        <attr format="dimension" name="furiganaSize"/>
+    </declare-styleable></file><file name="menu_introduce" path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/main/res/menu/menu_introduce.xml" qualifiers="" type="menu"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/hiratsukatomoki/Desktop/What_is_this_insect_application_v2/app/build/generated/res/resValues/debug"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="FuriganaView">
+        <attr name="android:text"/>
+        <attr name="android:maxLines"/>
+        <attr name="android:textAlignment"/>
+        <attr name="android:lineSpacingExtra"/>
+        <attr name="android:layout_marginEnd"/>
+        <attr name="android:layout_marginLeft"/>
+        <attr name="android:layout_marginRight"/>
+        <attr name="android:layout_marginStart"/>
+        <attr format="dimension" name="furiganaSize"/>
+    </declare-styleable></configuration></mergedItems></merger>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ~ Copyright 2022 The TensorFlow Authors. All Rights Reserved.
+    ~
+    ~ Licensed under the Apache License, Version 2.0 (the "License");
+    ~ you may not use this file except in compliance with the License.
+    ~ You may obtain a copy of the License at
+    ~
+    ~       http://www.apache.org/licenses/LICENSE-2.0
+    ~
+    ~ Unless required by applicable law or agreed to in writing, software
+    ~ distributed under the License is distributed on an "AS IS" BASIS,
+    ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    ~ See the License for the specific language governing permissions and
+    ~ limitations under the License.
+-->
+<resources>
+    <string name="help_text_1" translatable="false">
+        手の動作は、コンピュータにハンドサインを正しく認識してもらうために、一つずつ丁寧に行いましょう\n
+        １手をパーの形で判別したい虫に重ねます\n
+        ２その虫を掴むように手をグーの形にします\n
+        ３自分の手をカメラの範囲外にのけます</string>
+    <string name="help_text_2" translatable="false">
+        カメラで撮影した虫とその説明を記録します\n
+        いつでも見返すことができるので、どんどん写真を取りましょう\n
+        [使い方]\n
+        見たい虫の名前をタップして、むししょうかいをみることができます\n
+        長押しをすると、その虫のりれきを消すことができます\n
+        「さがす」を押すと、探したい虫を検索することができます</string>
+    <string name="help_text_3" translatable="false">
+        # 音声が流れます\n
+        切り取った虫の説明を見ることができます\n
+        後から履歴で見返すことができます
+    </string>
+    <string name="help_image_1_desc" translatable="false">画像1の説明</string>
+    <string name="help_image_2_desc" translatable="false">画像2の説明</string>
+    <string name="help_image_3_desc" translatable="false">画像3の説明</string>
+    <string name="gotoHelp" translatable="false">ヘルプ</string>
+    <string name="itemname" translatable="false">Item Name</string>
+    <string name="musisyoukai" translatable="false">この昆虫はカブトムシです</string>
+    <string name="gotoRireki" translatable="false">りれき</string>
+    <string name="gotoHelpAct" translatable="false">Go to HelpActivity</string>
+    <string name="gotoMain" translatable="false">Go to MainActivity</string>
+    <string name="app_name" translatable="false">この虫な~んだ</string>
+    <string name="togglebutton" translatable="false">Toggle</string>
+</resources>
