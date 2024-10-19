@@ -532,7 +532,12 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
         val MAXSIZE_X = bitmap.width
         val MAXSIZE_Y = bitmap.height
         val MINSIZE = 0
-        val EXPANTION = intArrayOf(200, 50)
+        val EXPANTION: IntArray
+        if(modechange){
+            EXPANTION = intArrayOf(0,0)
+        }else{
+            EXPANTION = intArrayOf(200, 50)
+        }
         val l = max((picrec[0]*MAXSIZE_X).toInt()-EXPANTION[0],MINSIZE)
         val t = max((picrec[1]*MAXSIZE_Y).toInt()-EXPANTION[1],MINSIZE)
         val r = min((picrec[2]*MAXSIZE_X).toInt()+EXPANTION[0],MAXSIZE_X)
