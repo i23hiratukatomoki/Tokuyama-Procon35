@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_help_screen3.xml",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_help_screen3.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_default_help.xml",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_default_help.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_main.xml",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_help_screen2.xml",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_help_screen2.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_help_screen1.xml",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_help_screen1.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_introduce.xml",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_introduce.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/activity_rireki.xml",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/activity_rireki.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-50:/layout/item_rireki.xml",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-53:/layout/item_rireki.xml"
+    }
+]
