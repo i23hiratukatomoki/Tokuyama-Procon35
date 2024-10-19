@@ -104,7 +104,9 @@ public class ModelUser {
             case 4://ガ
             case 21://チョウ
                 return using_model2_7(context);
-            default://クモ、ダンゴムシまたは虫を認識できなかった場合
+            case 11://クモ
+                return using_model2_5(context);
+            default://ダンゴムシまたは虫を認識できなかった場合
                 return ans+1;
 
         }
@@ -147,13 +149,11 @@ public class ModelUser {
 
         switch (ans) {
             case 0://アメンボ
-                return 1;
-            case 1://カマキリ
-                return 7;
             case 2://ナナフシ
-                return 24;
+                return using_model3_1a(context);
+            case 1://カマキリ
             case 3://バッタ
-                return 27;
+                return using_model3_1b(context);
             default://虫を認識できなかった場合
                 return 0;
         }
@@ -303,12 +303,57 @@ public class ModelUser {
         }
 
         switch (ans) {
-            case 0://カゲロウ
-                return 5;
             case 1://カワゲラ
                 return 10;
+            case 0://カゲロウ
             case 2://トンボ
-                return 23;
+                return using_model3_4a(context);
+            default://虫を認識できなかった場合
+                return 0;
+        }
+    }
+
+    private static int using_model2_5(Context context) {
+        try {
+            // 使用する推論モデル(model2_5)の読み込み
+            tfLiteModel = new Interpreter(loadModelFile(context, "model2_5.tflite"));
+            System.out.println("Successes:loading model2_5");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        int ans = -1;
+        float most = -1;
+        //推論メソッドを使っている。(resultに結果を格納)
+        try {
+            // model2_7は2クラスなのでclasses_num=3で推論を実行
+            result = runInference(3);
+            System.out.println("model2_5 推論成功");
+            Log.d("Inference", "Prediction model2_5: " + Arrays.toString(result));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        /*
+        resultには各番号(虫の種類)ごとにスコアがあり、高いほど一致している。なので一番高いスコアの種類がどれかを識別している。
+        ただし、どの虫のスコアも1.0以下であった場合(虫が存在しない場合)ansは-1となりreturnの値は0となる。
+        */
+        for (int i = 0; i < result.length; i++) {
+            if(most == -1) {
+                most=result[i];
+                ans=i;
+            } else if(most < result[i]) {
+                most=result[i];
+                ans=i;
+            }
+        }
+
+        switch (ans) {
+            case 0://カミキリムシ
+                return 8;
+            case 1://クモ
+                return 11;
+            case 2://テントウムシ
+                return 22;
             default://虫を認識できなかった場合
                 return 0;
         }
@@ -353,6 +398,94 @@ public class ModelUser {
                 return 21;
             case 1://ガ
                 return 4;
+            default://虫を認識できなかった場合
+                return 0;
+        }
+    }
+
+    private static int using_model3_1a(Context context) {
+        try {
+            // 使用する推論モデル(model3_1a)の読み込み
+            tfLiteModel = new Interpreter(loadModelFile(context, "model3_1a.tflite"));
+            System.out.println("Successes:loading model3_1a");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        int ans = -1;
+        float most = -1;
+        //推論メソッドを使っている。(resultに結果を格納)
+        try {
+            // model3_1aは2クラスなのでclasses_num=2で推論を実行
+            result = runInference(2);
+            System.out.println("model3_1a 推論成功");
+            Log.d("Inference", "Prediction model3_1a: " + Arrays.toString(result));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        /*
+        resultには各番号(虫の種類)ごとにスコアがあり、高いほど一致している。なので一番高いスコアの種類がどれかを識別している。
+        ただし、どの虫のスコアも1.0以下であった場合(虫が存在しない場合)ansは-1となりreturnの値は0となる。
+        */
+        for (int i = 0; i < result.length; i++) {
+            if(most == -1) {
+                most=result[i];
+                ans=i;
+            } else if(most < result[i]) {
+                most=result[i];
+                ans=i;
+            }
+        }
+
+        switch (ans) {
+            case 0://アメンボ
+                return 1;
+            case 1://ナナフシ
+                return 24;
+            default://虫を認識できなかった場合
+                return 0;
+        }
+    }
+
+    private static int using_model3_1b(Context context) {
+        try {
+            // 使用する推論モデル(model3_1b)の読み込み
+            tfLiteModel = new Interpreter(loadModelFile(context, "model3_1b.tflite"));
+            System.out.println("Successes:loading model3_1b");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        int ans = -1;
+        float most = -1;
+        //推論メソッドを使っている。(resultに結果を格納)
+        try {
+            // model3_1bは2クラスなのでclasses_num=2で推論を実行
+            result = runInference(2);
+            System.out.println("model3_1b 推論成功");
+            Log.d("Inference", "Prediction model3_1a: " + Arrays.toString(result));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        /*
+        resultには各番号(虫の種類)ごとにスコアがあり、高いほど一致している。なので一番高いスコアの種類がどれかを識別している。
+        ただし、どの虫のスコアも1.0以下であった場合(虫が存在しない場合)ansは-1となりreturnの値は0となる。
+        */
+        for (int i = 0; i < result.length; i++) {
+            if(most == -1) {
+                most=result[i];
+                ans=i;
+            } else if(most < result[i]) {
+                most=result[i];
+                ans=i;
+            }
+        }
+
+        switch (ans) {
+            case 0://カマキリ
+                return 7;
+            case 1://バッタ
+                return 27;
             default://虫を認識できなかった場合
                 return 0;
         }
@@ -501,52 +634,6 @@ public class ModelUser {
         }
     }
 
-
-    private static int using_model3_3d(Context context) {
-        try {
-            // 使用する推論モデル(model3_3d)の読み込み
-            tfLiteModel = new Interpreter(loadModelFile(context, "model3_3d.tflite"));
-            System.out.println("Successes:loading model3_3d");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        int ans = -1;
-        float most = -1;
-        //推論メソッドを使っている。(resultに結果を格納)
-        try {
-            // model3_3dは2クラスなのでclasses_num=2で推論を実行
-            result = runInference(2);
-            System.out.println("model3_3d 推論成功");
-            Log.d("Inference", "Prediction model3_3d: " + Arrays.toString(result));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        /*
-        resultには各番号(虫の種類)ごとにスコアがあり、高いほど一致している。なので一番高いスコアの種類がどれかを識別している。
-        ただし、どの虫のスコアも1.0以下であった場合(虫が存在しない場合)ansは-1となりreturnの値は0となる。
-        */
-        for (int i = 0; i < result.length; i++) {
-            if(most == -1) {
-                most=result[i];
-                ans=i;
-            } else if(most < result[i]) {
-                most=result[i];
-                ans=i;
-            }
-        }
-
-        switch(ans){
-            case 0://ゲンゴロウ
-                return 13;
-            case 1://テントウムシ
-                return 22;
-            default://虫を認識できなかった場合
-                return 0;
-        }
-    }
-
     private static int using_model3_3e(Context context) {
         try {
             // 使用する推論モデル(model3_3e)の読み込み
@@ -587,6 +674,51 @@ public class ModelUser {
                 return 15;
             case 1://セミ
                 return 16;
+            default://虫を認識できなかった場合
+                return 0;
+        }
+    }
+
+    private static int using_model3_4a(Context context) {
+        try {
+            // 使用する推論モデル(model3_4a)の読み込み
+            tfLiteModel = new Interpreter(loadModelFile(context, "model3_4a.tflite"));
+            System.out.println("Successes:loading model3_4a");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        int ans = -1;
+        float most = -1;
+        //推論メソッドを使っている。(resultに結果を格納)
+        try {
+            // model3_4aは2クラスなのでclasses_num=2で推論を実行
+            result = runInference(2);
+            System.out.println("model3_4a 推論成功");
+            Log.d("Inference", "Prediction model3_4a: " + Arrays.toString(result));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        /*
+        resultには各番号(虫の種類)ごとにスコアがあり、高いほど一致している。なので一番高いスコアの種類がどれかを識別している。
+        ただし、どの虫のスコアも1.0以下であった場合(虫が存在しない場合)ansは-1となりreturnの値は0となる。
+        */
+        for (int i = 0; i < result.length; i++) {
+            if(most == -1) {
+                most=result[i];
+                ans=i;
+            } else if(most < result[i]) {
+                most=result[i];
+                ans=i;
+            }
+        }
+
+        switch (ans){
+            case 0://カゲロウ
+                return 5;
+            case 1://トンボ
+                return 23;
             default://虫を認識できなかった場合
                 return 0;
         }
@@ -678,9 +810,54 @@ public class ModelUser {
             case 0://カブトムシ
                 return 6;
             case 1://コガネムシ
-                return 14;
+                return using_model5_3cIIb(context);
             case 2://ゾウムシ
                 return 17;
+            default://虫を認識できなかった場合
+                return 0;
+        }
+    }
+
+    private static int using_model5_3cIIb(Context context){
+        try {
+            // 使用する推論モデル(model5_3cIIb)の読み込み
+            tfLiteModel = new Interpreter(loadModelFile(context, "model5_3cIIb.tflite"));
+            System.out.println("Successes:loading model5_3cIIb");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        int ans = -1;
+        float most = -1;
+        //推論メソッドを使っている。(resultに結果を格納)
+        try {
+            // model5_3cIIbは2クラスなのでclasses_num=2で推論を実行
+            result = runInference(2);
+            System.out.println("model5_3cIIb 推論成功");
+            Log.d("Inference", "Prediction model5_3cIIb: " + Arrays.toString(result));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        /*
+        resultには各番号(虫の種類)ごとにスコアがあり、高いほど一致している。なので一番高いスコアの種類がどれかを識別している。
+        ただし、どの虫のスコアも1.0以下であった場合(虫が存在しない場合)ansは-1となりreturnの値は0となる。
+        */
+        for (int i = 0; i < result.length; i++) {
+            if(most == -1) {
+                most=result[i];
+                ans=i;
+            } else if(most < result[i]) {
+                most=result[i];
+                ans=i;
+            }
+        }
+
+        switch (ans){
+            case 0://ゲンゴロウ
+                return 13;
+            case 1://コガネムシ
+                return 14;
             default://虫を認識できなかった場合
                 return 0;
         }
