@@ -96,7 +96,8 @@ class IntroduceActivity : AppCompatActivity() , TextToSpeech.OnInitListener{
         toolbar.setNavigationOnClickListener {
             tts?.stop()
             tts?.shutdown()
-            finish()  // RirekiActivityに戻る
+            val intent = Intent(this, RirekiActivity::class.java)
+                startActivity(intent)
         }
 
         // MediaStoreの画像名参照

@@ -4,7 +4,7 @@
             "outputFile": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-49:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
             "map": [
                 {
-                    "source": "/Users/kyo/.gradle/caches/transforms-4/23e7fbf14efaf8f7b5ce8853516b1a5a/transformed/material-1.7.0/res/values-h320dp-port-v13/values-h320dp-port-v13.xml",
+                    "source": "/Users/hiratsukatomoki/.gradle/caches/transforms-4/23e7fbf14efaf8f7b5ce8853516b1a5a/transformed/material-1.7.0/res/values-h320dp-port-v13/values-h320dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

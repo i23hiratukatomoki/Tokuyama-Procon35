@@ -519,10 +519,13 @@ class MainActivity : BaseActivity(), CameraDialogParent, GestureRecognizerHelper
     }
     // putExtraでuriファイル名の送信と画面遷移
     private fun navigateToIntroduceActivity(uri_name: String) {
-        val intent = Intent(this, IntroduceActivity::class.java)
-        //MediaStoreに保存した画像(URI)の名前を渡す方法
-        intent.putExtra("image_uri", uri_name)
+        val intent = Intent(this, IntroduceActivity::class.java).apply {
+            putExtra("image_uri", uri_name)
+            // アクティビティスタックをクリアするためのフラグを追加
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP // or Intent.FLAG_ACTIVITY_NEW_TASK
+        }
         startActivity(intent)
+        finish() // 現在のアクティビティを終了してキャッシュを破棄
     }
     // Bitmapを指定範囲でトリミングする
     private fun cropBitmap(bitmap: Bitmap, cropRect: Rect): Bitmap {
